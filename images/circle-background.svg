@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" fill="none">
+  <g stroke="#BABAAB" stroke-width="1">
+    <ellipse cx="350" cy="350" rx="180" ry="180"/>  <!-- 360x360 -->
+    <ellipse cx="350" cy="350" rx="215" ry="215"/>  <!-- 430x430 -->
+    <ellipse cx="350" cy="350" rx="250" ry="250"/>  <!-- 500x500 -->
+    <ellipse cx="350" cy="350" rx="285" ry="285"/>  <!-- 570x570 -->
+    <ellipse cx="350" cy="350" rx="335.5" ry="313"/>  <!-- 671x626 -->
+    <ellipse cx="350" cy="350" rx="307" ry="346"/>   <!-- 614x692 -->
+  </g>
+</svg>
