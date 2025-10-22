@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <!-- коло -->
-  <circle cx="24" cy="24" r="22" stroke="#1D1E1B" stroke-width="3"/>
-  <!-- три лінії -->
-  <line x1="14" y1="17" x2="34" y2="17" stroke="#1D1E1B" stroke-width="3" stroke-linecap="round"/>
-  <line x1="14" y1="24" x2="34" y2="24" stroke="#1D1E1B" stroke-width="3" stroke-linecap="round"/>
-  <line x1="14" y1="31" x2="34" y2="31" stroke="#1D1E1B" stroke-width="3" stroke-linecap="round"/>
-</svg>
