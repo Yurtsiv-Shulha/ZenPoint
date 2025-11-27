@@ -1,0 +1,577 @@
+/* кольорова палітра */
+:root {
+  --green-deep: #2D4B4B;
+  --beige: #FFF8E7;
+  --accent-grey: #637B79;
+  --text-dark: #1D1E1B;
+}
+
+/* базові стилі */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--green-deep);
+  color: var(--text-dark);
+  font-family: 'Jura', sans-serif;
+}
+
+/* нижній радіальний фон */
+body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 720px;
+  background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
+  z-index: -1;
+}
+
+/* відступ під топбар */
+.page-content {
+  padding-top: 90px;
+}
+
+/* верхня панель */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 1000;
+  background: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* фонові градієнти */
+.topbar-gradient {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.topbar-gradient.left {
+  left: 0;
+  width: 60vw;
+  background: linear-gradient(90deg, var(--accent-grey) 1.69%, var(--beige) 66.48%);
+}
+
+.topbar-gradient.right {
+  right: 0;
+  width: 60vw;
+  background: linear-gradient(270deg, var(--accent-grey) 1.69%, var(--beige) 68.48%);
+}
+
+/* логотип */
+.logo {
+  position: absolute;
+  top: 16px;
+  left: 64px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo .zen {
+  font-size: 40px;
+  line-height: 48px;
+  color: #2C4D4B;
+}
+
+.logo .point {
+  font-size: 40px;
+  line-height: 48px;
+  color: #1D1E1B;
+}
+
+/* навігація */
+.nav-buttons {
+  position: absolute;
+  top: 14px;
+  left: 535px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* кнопки */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 41px;
+  padding: 0 20px;
+
+  background: transparent;
+  border: 1px solid #2C4D4B;
+  border-radius: 20px;
+
+  color: #2C4D4B;
+  text-decoration: none;
+  font-family: 'Jura', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.25s;
+}
+
+/* ширини згідно макету */
+.btn:nth-child(1) {
+  width: 170px;
+}
+
+.btn:nth-child(2) {
+  width: 112px;
+}
+
+.btn:nth-child(3) {
+  width: 120px;
+}
+
+.btn:nth-child(4) {
+  width: 130px;
+}
+
+.btn:hover {
+  background: #2C4D4B;
+  color: #FFF8E7;
+  transform: translateY(-1px);
+}
+
+/* соц. іконки */
+.social-icons {
+  position: absolute;
+  top: 16px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.icon {
+  width: 41px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+
+  background: transparent;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.icon img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(10%) saturate(1100%) hue-rotate(127deg) brightness(97%) contrast(90%);
+  transition: 0.3s;
+}
+
+.icon:hover {
+  background-color: #2C4D4B;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* бургер меню */
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu summary {
+  list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu summary img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu summary img:hover {
+  transform: scale(1.15);
+}
+
+/* випадаюче меню */
+.menu .dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+
+  background: #FFF8E7;
+  border-radius: 12px;
+  padding: 14px 20px;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.menu[open] .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.menu .dropdown a {
+  color: #2C4D4B;
+  text-decoration: none;
+  font-family: 'Jura', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 4px 0;
+  transition: 0.2s;
+}
+
+.menu .dropdown a:hover {
+  color: #1D1E1B;
+  transform: translateX(4px);
+}
+
+
+/* фонові квіти */
+.flowers-bg {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flower-left,
+.flower-right {
+  position: absolute;
+  width: 380px;
+  opacity: 0.25;
+}
+
+/* ліва квітка — відзеркалена */
+.flower-left {
+  left: 0;
+  bottom: 0;
+  transform: scaleX(-1);
+}
+
+/* права квітка */
+.flower-right {
+  right: 0;
+  top: 140px;
+}
+
+/* картка заняття */
+.class-card {
+  width: 300px;
+  height: 432px;
+  background: #FFF8E7;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* назва та рівень */
+.title-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 16px;
+}
+
+.title-row h3 {
+  margin: 0;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #2C4D4B;
+}
+
+.level {
+  display: flex;
+  gap: 6px;
+  padding-right: 16px;
+}
+
+.level img {
+  width: 20px;
+}
+
+/* слайдер */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 58%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* стрілки */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: #FFF8E7;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* секція занять */
+.classes-section {
+  position: relative;
+  margin-top: 148px;
+}
+
+/* заголовок секції */
+.classes-title {
+  width: 416px;
+  padding: 25px 40px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(153, 153, 153, 0) 100%);
+  border-radius: 20px;
+  box-shadow:
+    0px 8px 20px rgba(0, 0, 0, 0.45),
+    0px 2px 4px rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.54));
+  font-size: 48px;
+  font-family: 'Jura', sans-serif;
+  text-align: center;
+  color: #FFF8E7;
+  margin: 0 auto 60px;
+}
+
+/* розташування карток */
+.classes-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 96px;
+}
+
+/* фото всередині картки */
+.slider {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* назва в картці */
+.class-card h3 {
+  margin-top: 0;
+  margin-left: 16px;
+  width: 197px;
+  height: 86px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: left;
+  color: #2C4D4B;
+}
+
+/* кнопка "детальніше" */
+.details-block {
+  margin-top: 12px;
+}
+
+.details-block summary {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C4D4B;
+}
+
+.details-block summary {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: #2C4D4B;
+    font-family: 'Jura', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.details-block summary:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+/* модальне вікно */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.modal-content {
+  background: #FFF8E7;
+  width: 90%;
+  max-width: 480px;
+  margin: 120px auto;
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+  font-family: "Jura", sans-serif;
+}
+
+/* хрестик */
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #2C4D4B;
+}
+
+/* текст у картці */
+.details-block p {
+  text-align: justify;
+  font-size: 14px;
+  color: #1D1E1B;
+  font-family: 'Jura', sans-serif;
+}
+
+/* футер */
+.footer {
+  width: 100%;
+  background: var(--beige);
+  padding: 20px 0;
+  margin-top: 80px;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.footer-inner {
+  text-align: center;
+  font-family: 'Jura', sans-serif;
+  color: var(--green-deep);
+}
+
+.footer-inner a {
+  color: var(--green-deep);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.footer-inner a:hover {
+  opacity: 0.7;
+}
+
+/* адаптивність */
+@media (max-width: 600px) {
+
+  .topbar-gradient.left,
+  .topbar-gradient.right {
+    width: 50vw;
+  }
+
+  .card img {
+    width: 80px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav-buttons {
+    display: none;
+  }
+}
