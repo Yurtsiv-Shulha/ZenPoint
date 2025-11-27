@@ -1,0 +1,473 @@
+/* =======================
+   ЄДИНИЙ style.css (DEDUP)
+   ======================= */
+
+/* === КОЛЬОРОВА ПАЛІТРА (єдина) === */
+:root {
+  --green-deep: #2D4B4B;   /* головний зелений */
+  --beige: #FFF8E7;        /* світлий беж */
+  --accent-grey: #637B79;  /* акцентний сіро-бірюзовий */
+  --text-dark: #1D1E1B;    /* темний для тексту */
+
+  /* Налаштування каруселі */
+  --photo-size: 122px;
+  --carousel-speed: 35s;
+}
+
+/* =========================
+   СВІТЛА ТЕМА (index.html за замовчуванням)
+   ========================= */
+html, body {
+  height: 110%;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--beige);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--green-deep);
+}
+
+/* =========================
+   АЛЬТЕРНАТИВНА «ГЛИБОКА» ТЕМА
+   Активується: <body class="theme-deep">
+   ========================= */
+body.theme-deep {
+  height: 100%;
+  background-color: var(--green-deep);
+  color: var(--text-dark);
+  font-family: 'Jura', sans-serif;
+}
+
+/* Фоновий радіальний градієнт (для глибокої теми) */
+body.theme-deep::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 720px;
+  background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
+  z-index: -1;
+}
+
+/* щоб контент не заходив під верхню плашку */
+.page-content {
+  padding-top: 90px;
+}
+
+/* =========================
+   ВЕРХНЯ ГРАДІЄНТНА ПАНЕЛЬ / ТОПБАР (як на why.html)
+   ========================= */
+/* === ВЕРХНЯ ГРАДІЄНТНА ПАНЕЛЬ === */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 1000;
+  background: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* обидві частини плашки */
+.topbar-gradient {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+  /* не блокує кліки */
+  z-index: -1;
+  /* градієнти під контентом */
+}
+
+/* Лівий градієнт */
+.topbar-gradient.left {
+  left: 0;
+  width: 60vw;
+  /* адаптивна ширина */
+  background: linear-gradient(90deg,
+      var(--accent-grey) 1.69%,
+      var(--beige) 66.48%);
+}
+
+/* Правий градієнт */
+.topbar-gradient.right {
+  right: 0;
+  width: 60vw;
+  /* адаптивна ширина */
+  background: linear-gradient(270deg,
+      var(--accent-grey) 1.69%,
+      var(--beige) 68.48%);
+}
+
+
+/* === ЛОГОТИП ZENPOINT === */
+.logo {
+  position: absolute;
+  top: 16px;
+  /* відстань зверху */
+  left: 64px;
+  /* відстань від лівого краю */
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Частина ZEN */
+.logo .zen {
+  font-size: 40px;
+  line-height: 48px;
+  color: #2C4D4B;
+  /* темно-зелений */
+}
+
+/* Частина POINT */
+.logo .point {
+  font-size: 40px;
+  line-height: 48px;
+  color: #1D1E1B;
+  /* темно-сірий */
+}
+
+/* === КНОПКИ НАВІГАЦІЇ === */
+.nav-buttons {
+  position: absolute;
+  top: 14px;
+  left: 535px;
+  /* зробили точніше, щоб реально 275px від лого */
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  /* відстань між кнопками */
+  font-family: 'Jura', sans-serif;
+}
+
+/* === КНОПКИ === */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 41px;
+  background: transparent;
+  border: 1px solid #2C4D4B;
+  border-radius: 20px;
+  color: #2C4D4B;
+  text-decoration: none;
+  font-family: 'Jura', sans-serif;
+  /* ✅ новий шрифт */
+  font-style: normal;
+  font-weight: 600;
+  /* товщина */
+  font-size: 20px;
+  /* розмір */
+  line-height: 24px;
+  /* як у макеті */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.25s;
+  padding: 0 20px;
+}
+
+/* ширини згідно з макетом */
+.btn:nth-child(1) {
+  width: 170px;
+}
+
+/* Наші заняття */
+.btn:nth-child(2) {
+  width: 112px;
+}
+
+/* Про нас */
+.btn:nth-child(3) {
+  width: 120px;
+}
+
+/* Розклад */
+.btn:nth-child(4) {
+  width: 130px;
+}
+
+/* Контакти */
+
+/* ефект наведення */
+.btn:hover {
+  background: #2C4D4B;
+  color: #FFF8E7;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   ІКОНИ СОЦМЕРЕЖ (як на why.html)
+   ========================= */
+/* === ІКОНИ СОЦМЕРЕЖ === */
+.social-icons {
+  position: absolute;
+  top: 16px;
+  /* відстань від верхнього краю */
+  right: 48px;
+  /* відступ від правого краю */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* проміжок між іконками */
+  z-index: 10;
+}
+
+/* Контейнер іконки */
+.icon {
+  width: 41px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: transparent;
+  transition: 0.3s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Зображення всередині */
+.icon img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(10%) saturate(1100%) hue-rotate(127deg) brightness(97%) contrast(90%);
+  transition: 0.3s;
+}
+
+/* Ефект наведення */
+.icon:hover {
+  background-color: #2C4D4B;
+}
+
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* Легка анімація при наведенні */
+.icon:hover {
+  background-color: #2C4D4B;
+  transform: scale(1.1);
+  /* злегка збільшується */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== БУРГЕР-МЕНЮ ===== */
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Прибрати стандартну стрілку summary */
+.menu summary {
+  list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Іконка меню */
+.menu summary img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Анімація наведення */
+.menu summary img:hover {
+  transform: scale(1.15);
+}
+
+/* Випадаюче меню */
+.menu .dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #FFF8E7;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  z-index: 1000;
+
+  /* плавна поява */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+  pointer-events: none;
+}
+
+/* коли меню відкрите */
+.menu[open] .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* стиль пунктів */
+.menu .dropdown a {
+  color: #2C4D4B;
+  text-decoration: none;
+  font-family: "Jura", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 4px 0;
+  transition: 0.2s;
+}
+
+/* ефект наведення */
+.menu .dropdown a:hover {
+  color: #1D1E1B;
+  transform: translateX(4px);
+}
+
+/* =========================
+   ФОНОВІ ПАНЕЛІ ДЛЯ СВІТЛОЇ ТЕМИ
+   ========================= */
+.left-rect,
+.right-rect {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+}
+.left-rect  {
+  left: 0;
+  width: 60vw;
+  background: linear-gradient(90deg, var(--accent-grey) 1.69%, var(--beige) 66.48%);
+}
+.right-rect {
+  right: 0;
+  width: 60vw;
+  background: linear-gradient(270deg, var(--accent-grey) 1.69%, var(--beige) 68.48%);
+}
+
+/* =========================
+   ГЕРОЙ-БЛОК ГОЛОВНОЇ
+   ========================= */
+.sticker-back {
+  position: absolute; width: 8vw; max-width: 122px; aspect-ratio: 1/1;
+  left: 50%; top: 18vh; transform: translateX(-50%);
+  filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); z-index: 3;
+}
+.sticker-back img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; display: block; }
+
+.main-title {
+  position: absolute; top: 33vh; left: 50%; transform: translateX(-50%);
+  font-family: 'Jura', sans-serif; font-weight: 700; font-size: 32px; line-height: 38px;
+  color: var(--green-deep);
+  text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  text-align: center; z-index: 3;
+}
+.subtitle {
+  position: absolute; top: 39vh; left: 50%; transform: translateX(-50%);
+  width: 60vw; max-width: 630px;
+  font-family: 'Jura', sans-serif; font-weight: 600; font-size: 20px; line-height: 24px;
+  text-align: center; color: var(--green-deep); z-index: 3;
+}
+
+/* КВІТИ */
+.flower {
+  position: absolute; width: 200vw; max-width: 900px; left: -20vw; top: 7vh;
+  transform: rotate(-5deg); opacity: 0.45; z-index: 1;
+}
+.flower img { width: 100%; height: auto; display: block; }
+.flowerright {
+  position: absolute; width: 28vw; max-width: 532.76px; right: 0; bottom: 17vh;
+  transform: rotate(-1deg); opacity: 0.45; z-index: 1;
+}
+.flowerright img { width: 100%; height: auto; display: block; }
+
+/* =========================
+   КАРУСЕЛЬ
+   ========================= */
+.photo-carousel {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 100vw; bottom: 45vh; overflow: hidden; z-index: 2;
+}
+.carousel-track {
+  display: flex; width: calc(var(--photo-size) * 22);
+  animation: scroll var(--carousel-speed) linear infinite;
+}
+.carousel-track img {
+  width: var(--photo-size); height: var(--photo-size);
+  object-fit: cover; flex-shrink: 0; margin: 0;
+  filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
+}
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--photo-size) * 11)); }
+}
+
+/* =========================
+   КНОПКА "ЗАПИСАТИСЯ НА ПРОБНЕ"
+   ========================= */
+   .trial-button-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 33vh; /* можна підправити */
+    z-index: 3;
+  }
+  
+  .trial-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    min-width: 320px;
+  
+    background-color: var(--green-deep);
+    color: #FFF8E7;
+  
+    font-family: 'Jura', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 30px;
+  
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  
+    transition: 0.25s ease;
+  }
+  
+  .trial-button:hover {
+    background-color: #1E3535;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.35);
+  }
+  
+
+
+/* =========================
+   АДАПТИВНІСТЬ
+   ========================= */
+@media (max-width: 1000px) {
+  .flower { width: 55vw; left: 5vw; top: 22vh; }
+  .sticker-back { width: 10vw; top: 8vh; }
+  :root { --photo-size: 90px; --carousel-speed: 25s; }
+}
+@media (max-width: 700px) {
+  .flower { width: 65vw; left: 5vw; top: 25vh; opacity: 0.4; }
+  .sticker-back { width: 14vw; top: 5vh; }
+  :root { --photo-size: 70px; --carousel-speed: 20s; }
+}
+@media (max-width: 450px) {
+  .flower { width: 75vw; top: 28vh; }
+  .sticker-back { width: 18vw; top: 4vh; }
+  :root { --photo-size: 60px; --carousel-speed: 18s; }
+}
+@media (max-width: 600px) {
+  .topbar-gradient.left,
+  .topbar-gradient.right {
+    width: 50vw;
+  }
+}
