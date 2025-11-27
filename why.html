@@ -1,4 +1,3 @@
-<!-- why.html -->
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -6,132 +5,108 @@
     <meta charset="UTF-8">
     <title>Чому ZENPOINT?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- стилі -->
+    <link rel="stylesheet" href="css/why.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600&display=swap" rel="stylesheet">
 </head>
 
-<body bgcolor="#2C4D4B" text="#FFF8E7" link="#FFF8E7" vlink="#FFF8E7" alink="#FFF8E7">
+<body>
 
-    <!-- Верхня панель -->
-    <header>
-        <table width="100%" cellpadding="12" cellspacing="0" border="0" bgcolor="#FFF8E7">
-            <tr>
-                <td width="25%" align="left">
-                    <span style="font-family: Arial, sans-serif; font-weight: bold; font-size: 26px;">
-                        <span style="color:#2C4D4B;">ZEN</span><span style="color:#1D1E1B;">POINT</span>
-                    </span>
-                </td>
-                <td align="center">
-                    <nav>
-                        <a href="index.html" style="color:#2C4D4B;">Головна</a> |
-                        <a href="classes.html" style="color:#2C4D4B;">Наші заняття</a> |
-                        <a href="about.html" style="color:#2C4D4B;">Про нас</a> |
-                        <a href="schedule.html" style="color:#2C4D4B;">Розклад</a> |
-                        <a href="contacts.html" style="color:#2C4D4B;">Контакти</a>
-                    </nav>
-                </td>
-                <td width="25%" align="right">
-                    <a href="https://instagram.com" target="_blank" title="Instagram">
-                        <img src="images/instagram.svg" alt="Instagram" width="28" height="28"
-                            style="margin-right:8px;">
-                    </a>
-                    <a href="https://facebook.com" target="_blank" title="Facebook">
-                        <img src="images/facebook.svg" alt="Facebook" width="28" height="28" style="margin-right:8px;">
-                    </a>
-                    <details style="display:inline-block; position:relative;">
-                        <summary style="display:inline; cursor:pointer;">
-                            <img src="images/menu.svg" alt="Menu" width="28" height="28">
-                        </summary>
+    <!-- верхня панель -->
+    <header class="topbar">
+        <div class="topbar-gradient left"></div>
+        <div class="topbar-gradient right"></div>
 
-                        <div
-                            style="position:absolute; right:0; background:#FFF8E7; border:1px solid #2C4D4B; border-radius:10px; margin-top:10px; padding:12px; text-align:left; z-index:100;">
-                            <a href="index.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Головна</a>
-                            <a href="why.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Чому
-                                ZENPOINT?</a>
-                            <a href="classes.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Наші
-                                заняття</a>
-                            <a href="about.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Про нас</a>
-                            <a href="schedule.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Розклад</a>
-                            <a href="contacts.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Контакти</a>
-                            <a href="faq.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">FAQ</a>
-                        </div>
-                    </details>
-                </td>
-            </tr>
-        </table>
+        <!-- логотип -->
+        <div class="logo">
+            <span class="zen">ZEN</span><span class="point">POINT</span>
+        </div>
+
+        <!-- основна навігація -->
+        <nav class="nav-buttons">
+            <a href="classes.html" class="btn">Наші заняття</a>
+            <a href="about.html" class="btn">Про нас</a>
+            <a href="schedule.html" class="btn">Розклад</a>
+            <a href="contacts.html" class="btn">Контакти</a>
+        </nav>
+
+        <!-- соціальні іконки та бургер -->
+        <div class="social-icons">
+            <a href="#" class="icon"><img src="images/facebook.svg" alt=""></a>
+            <a href="#" class="icon"><img src="images/instagram.svg" alt=""></a>
+
+            <!-- бургер-меню -->
+            <details class="icon menu">
+                <summary><img src="images/menu.svg" width="35" alt=""></summary>
+
+                <div class="dropdown">
+                    <a href="index.html">Головна</a>
+                    <a href="why.html">Чому ZENPOINT?</a>
+                    <a href="classes.html">Наші заняття</a>
+                    <a href="about.html">Про нас</a>
+                    <a href="schedule.html">Розклад</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </details>
+        </div>
     </header>
 
+    <!-- головна секція -->
+    <main class="why-section">
 
-    <main>
-        <table width="100%" cellpadding="20" cellspacing="0" border="0">
-            <tr>
-                <td align="center">
-                    <h1>Чому ZENPOINT?</h1>
-                </td>
-            </tr>
+        <!-- заголовок сторінки -->
+        <h2 class="why-title">Чому ZENPOINT?</h2>
 
-            <!-- Центральне фото з колами -->
-            <tr>
-                <td align="center">
-                    <!-- Декоративні кола -->
-                    <img src="images/circle-background.svg" alt="Декоративні кола ZenPoint" width="400"
-                        height="400"><br>
-                    <!-- Фото -->
-                    <img src="images/yoga-studio.jpg" alt="Дівчина у позі йоги" width="300" height="400">
-                </td>
-            </tr>
+        <!-- декоративне коло -->
+        <div class="circle-bg">
+            <img src="images/circle-background.svg" alt="">
+        </div>
 
-            <!-- Чотири блоки переваг -->
-            <tr>
-                <td align="center">
-                    <table width="90%" cellpadding="16" cellspacing="0" border="1"
-                        style="border:1px solid #FFF8E7; border-collapse:collapse; border-radius:10px;">
-                        <tr bgcolor="#FFF8E7" align="center">
-                            <td>
-                                <h3 style="color:#2C4D4B;">Гармонія тіла й розуму</h3>
-                            </td>
-                            <td>
-                                <h3 style="color:#2C4D4B;">Енергія та життєві сили</h3>
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td>Зняття стресу, напруження та відновлення внутрішньої рівноваги.</td>
-                            <td>Практики, що наповнюють енергією, підвищують тонус і життєву активність.</td>
-                        </tr>
-                        <tr bgcolor="#FFF8E7" align="center">
-                            <td>
-                                <h3 style="color:#2C4D4B;">Любов до себе</h3>
-                            </td>
-                            <td>
-                                <h3 style="color:#2C4D4B;">Шлях до самопізнання</h3>
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td>Прийняття власного тіла, розуміння свого стану та розвиток гармонії всередині.</td>
-                            <td>Усвідомлення себе через практику йоги, відчуття балансу й внутрішнього спокою.</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <!-- центральне фото -->
+        <div class="why-center">
+            <img src="images/yoga-studio.jpg" class="yoga-photo" alt="">
+        </div>
+
+        <!-- картки -->
+        <div class="card card-left-top">
+            <img src="images/icon-harmony.png" class="card-icon" alt="">
+            <h3>Гармонія тіла й розуму</h3>
+            <p>Зняття стресу,<br>відновлення рівноваги</p>
+            <div class="card-number">01</div>
+        </div>
+
+        <div class="card card-left-bottom">
+            <img src="images/icon-love.png" class="card-icon" alt="">
+            <h3>Любов до себе</h3>
+            <p>Прийняття, розвиток,<br>самооцінка</p>
+            <div class="card-number">02</div>
+        </div>
+
+        <div class="card card-right-top">
+            <img src="images/icon-energy.png" class="card-icon" alt="">
+            <h3>Енергія та сили</h3>
+            <p>Тонус, витривалість,<br>життєва активність</p>
+            <div class="card-number">03</div>
+        </div>
+
+        <div class="card card-right-bottom">
+            <img src="images/icon-path.png" class="card-icon" alt="">
+            <h3>Шлях до самопізнання</h3>
+            <p>Усвідомлення,<br>глибокі практики</p>
+            <div class="card-number">04</div>
+        </div>
+
     </main>
 
-    <!-- Футер -->
-    <footer>
-        <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#FFF8E7">
-            <tr>
-                <td align="center">
-                    <p style="color:#2C4D4B;">&copy; 2025 ZENPOINT. Усі права захищені.
-                        <a href="contacts.html" style="color:#2C4D4B;">Зв’язатися з нами</a>
-                    </p>
-                </td>
-            </tr>
-        </table>
+    <!-- футер -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; 2025 ZENPOINT. Усі права захищені.</p>
+            <a href="contacts.html">Зв’язатися з нами</a>
+        </div>
     </footer>
 
 </body>
