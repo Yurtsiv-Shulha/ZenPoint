@@ -1,4 +1,3 @@
-<!-- classes.html -->
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -6,224 +5,245 @@
     <meta charset="UTF-8">
     <title>Наші заняття | ZENPOINT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- стилі -->
+    <link rel="stylesheet" href="css/classes.css">
+
+    <!-- шрифти -->
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
-<body bgcolor="#2C4D4B" text="#FFF8E7" link="#FFF8E7" vlink="#FFF8E7" alink="#FFF8E7">
+<body>
 
-    <!-- Верхня панель -->
-    <header>
-        <table width="100%" cellpadding="12" cellspacing="0" border="0" bgcolor="#FFF8E7">
-            <tr>
-                <td width="25%" align="left">
-                    <span style="font-family: Arial, sans-serif; font-weight: bold; font-size: 26px;">
-                        <span style="color:#2C4D4B;">ZEN</span><span style="color:#1D1E1B;">POINT</span>
-                    </span>
-                </td>
-                <td align="center">
-                    <nav>
-                        <a href="index.html" style="color:#2C4D4B;">Головна</a> |
-                        <a href="classes.html" style="color:#2C4D4B;">Наші заняття</a> |
-                        <a href="about.html" style="color:#2C4D4B;">Про нас</a> |
-                        <a href="schedule.html" style="color:#2C4D4B;">Розклад</a> |
-                        <a href="contacts.html" style="color:#2C4D4B;">Контакти</a>
-                    </nav>
-                </td>
-                <td width="25%" align="right">
-                    <a href="https://instagram.com" target="_blank" title="Instagram">
-                        <img src="images/instagram.svg" alt="" width="28" height="28" style="margin-right:8px;">
-                    </a>
-                    <a href="https://facebook.com" target="_blank" title="Facebook">
-                        <img src="images/facebook.svg" alt="" width="28" height="28" style="margin-right:8px;">
-                    </a>
-                    <details style="display:inline-block; position:relative;">
-                        <summary style="display:inline; cursor:pointer;">
-                            <img src="images/menu.svg" alt="Меню" width="28" height="28">
-                        </summary>
+    <!-- верхня панель -->
+    <header class="topbar">
+        <div class="topbar-gradient left"></div>
+        <div class="topbar-gradient right"></div>
 
-                        <div
-                            style="position:absolute; right:0; background:#FFF8E7; border:1px solid #2C4D4B; border-radius:10px; margin-top:10px; padding:12px; text-align:left; z-index:100;">
-                            <a href="index.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Головна</a>
-                            <a href="why.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Чому
-                                ZENPOINT?</a>
-                            <a href="classes.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Наші
-                                заняття</a>
-                            <a href="about.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Про нас</a>
-                            <a href="schedule.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Розклад</a>
-                            <a href="contacts.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">Контакти</a>
-                            <a href="faq.html"
-                                style="color:#2C4D4B; text-decoration:none; display:block; margin:6px 0;">FAQ</a>
-                        </div>
-                    </details>
-                </td>
-            </tr>
-        </table>
+        <!-- логотип -->
+        <div class="logo">
+            <span class="zen">ZEN</span><span class="point">POINT</span>
+        </div>
+
+        <!-- навігація -->
+        <nav class="nav-buttons">
+            <a href="classes.html" class="btn">Наші заняття</a>
+            <a href="about.html" class="btn">Про нас</a>
+            <a href="schedule.html" class="btn">Розклад</a>
+            <a href="contacts.html" class="btn">Контакти</a>
+        </nav>
+
+        <!-- іконки + бургер -->
+        <div class="social-icons">
+            <a href="#" class="icon"><img src="images/facebook.svg" alt=""></a>
+            <a href="#" class="icon"><img src="images/instagram.svg" alt=""></a>
+
+            <details class="icon menu">
+                <summary><img src="images/menu.svg" width="35" alt="Меню"></summary>
+
+                <div class="dropdown">
+                    <a href="index.html">Головна</a>
+                    <a href="why.html">Чому ZENPOINT?</a>
+                    <a href="classes.html">Наші заняття</a>
+                    <a href="about.html">Про нас</a>
+                    <a href="schedule.html">Розклад</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </details>
+        </div>
     </header>
 
+    <!-- декоративні квіти -->
+    <div class="flowers-bg">
+        <img src="images/flowerright.png" class="flower-left" alt="">
+        <img src="images/flowerright.png" class="flower-right" alt="">
+    </div>
 
-    <!-- Основна частина -->
-    <main>
-        <table width="100%" cellpadding="20" cellspacing="0" border="0">
-            <tr>
-                <td align="center">
-                    <h1>Наші заняття</h1>
-                </td>
-            </tr>
+    <!-- секція занять -->
+    <section class="classes-section">
+        <h1 class="classes-title">Наші заняття</h1>
 
-            <!-- 3 картки -->
-            <tr>
-                <td align="center">
-                    <table width="90%" cellpadding="10" cellspacing="0" border="0">
-                        <tr align="center">
+        <div class="classes-cards">
 
-                            <!-- Хатха-йога -->
-                            <td bgcolor="#FFF8E7" style="border-radius:12px; padding:12px; color:#2C4D4B;">
-                                <table cellpadding="6" cellspacing="0" border="0" align="center">
-                                    <tr>
-                                        <td><img src="images/classes-hatha-left-01.png" alt="Хатха-йога фото 1" width="100" height="80"></td>
-                                        <td><img src="images/classes-hatha-left-02.png" alt="Хатха-йога фото 2" width="100" height="80"></td>
-                                        <td><img src="images/classes-hatha-left-03.png" alt="Хатха-йога фото 3" width="100" height="80"></td>
-                                    </tr>
-                                </table>
+            <!-- хатха-йога -->
+            <div class="class-card">
 
-                                <h3>Хатха-йога</h3>
+                <div class="slider">
+                    <img class="slide active" src="images/classes-hatha-left-01.png">
+                    <img class="slide" src="images/classes-hatha-left-02.png">
+                    <img class="slide" src="images/classes-hatha-left-03.png">
 
-                                <!-- рівень складності (іконки декоративні) -->
-                                <p>
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_light.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_light.svg" alt="" width="18" height="18">
-                                </p>
+                    <button class="arrow left">&#10094;</button>
+                    <button class="arrow right">&#10095;</button>
+                </div>
 
-                                <!-- стрілочки (декоративні) -->
-                                <p>
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                    &nbsp;
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                </p>
+                <div class="title-row">
+                    <h3>Хатха-йога</h3>
+                    <div class="level">
+                        <img src="images/fire_dark.svg">
+                        <img src="images/fire_light.svg">
+                        <img src="images/fire_light.svg">
+                    </div>
+                </div>
 
-                                <!-- Детальніше -->
-                                <details>
-                                    <summary style="cursor:pointer; font-weight:bold; color:#2C4D4B;">Детальніше
-                                    </summary>
-                                    <p style="font-size:14px; text-align:justify; margin-top:8px;">
-                                        <b>Для кого підходить:</b> для новачків, хто шукає спокій, відновлення та легке
-                                        зміцнення тіла.<br><br>
-                                        <b>Опис:</b> Хатха-йога поєднує фізичні вправи, дихання та медитацію. Це шлях до
-                                        гармонії тіла й розуму.
-                                    </p>
-                                </details>
-                            </td>
+                <details class="details-block">
+                    <summary>Детальніше</summary>
+                    <div class="yoga-info">
+                        <p><strong>Опис:</strong> м’який класичний напрям, що поєднує асани, дихання та розслаблення для
+                            оздоровлення тіла і заспокоєння розуму.</p>
+                        <p><strong>Прокачує:</strong> розтяжку, мобільність суглобів, гнучкість, правильне дихання та
+                            зниження внутрішньої напруги.</p>
+                        <p><strong>Підходить для:</strong> новачків, офісних працівників, людей зі стресом або сидячим
+                            способом життя.</p>
+                    </div>
+                </details>
 
-                            <!-- Аштанга-йога -->
-                            <td bgcolor="#FFF8E7" style="border-radius:12px; padding:12px; color:#2C4D4B;">
-                                <table cellpadding="6" cellspacing="0" border="0" align="center">
-                                    <tr>
-                                        <td><img src="images/classes-ashtanga-center-01.png" alt="Аштанга-йога фото 1" width="100" height="80"></td>
-                                        <td><img src="images/classes-ashtanga-center-02.png" alt="Аштанга-йога фото 2" width="100" height="80"></td>
-                                        <td><img src="images/classes-ashtanga-center-03.png" alt="Аштанга-йога фото 3" width="100" height="80"></td>
-                                    </tr>
-                                </table>
+            </div>
 
-                                <h3>Аштанга-йога</h3>
+            <!-- аштанга-йога -->
+            <div class="class-card">
 
-                                <!-- рівень складності -->
-                                <p>
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                </p>
+                <div class="slider">
+                    <img class="slide active" src="images/classes-ashtanga-center-01.png">
+                    <img class="slide" src="images/classes-ashtanga-center-02.png">
+                    <img class="slide" src="images/classes-ashtanga-center-03.png">
 
-                                <!-- стрілочки -->
-                                <p>
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                    &nbsp;
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                </p>
+                    <button class="arrow left">&#10094;</button>
+                    <button class="arrow right">&#10095;</button>
+                </div>
 
-                                <details>
-                                    <summary style="cursor:pointer; font-weight:bold; color:#2C4D4B;">Детальніше
-                                    </summary>
-                                    <p style="font-size:14px; text-align:justify; margin-top:8px;">
-                                        <b>Для кого підходить:</b> для активних людей, які прагнуть сили, витривалості
-                                        та концентрації.<br><br>
-                                        <b>Опис:</b> Аштанга-йога — динамічний стиль, що поєднує потоки руху та дихання,
-                                        створюючи тепло й енергію.
-                                    </p>
-                                </details>
-                            </td>
+                <div class="title-row">
+                    <h3>Аштанга-йога</h3>
+                    <div class="level">
+                        <img src="images/fire_dark.svg">
+                        <img src="images/fire_dark.svg">
+                        <img src="images/fire_dark.svg">
+                    </div>
+                </div>
 
-                            <!-- Кундаліні-йога -->
-                            <td bgcolor="#FFF8E7" style="border-radius:12px; padding:12px; color:#2C4D4B;">
-                                <table cellpadding="6" cellspacing="0" border="0" align="center">
-                                    <tr>
-                                        <td><img src="images/classes-kundalini-right-01.png" alt="Кундаліні-йога фото 1" width="100" height="80"></td>
-                                        <td><img src="images/classes-kundalini-right-02.png" alt="Кундаліні-йога фото 2" width="100" height="80"></td>
-                                        <td><img src="images/classes-kundalini-right-03.png" alt="Кундаліні-йога фото 3" width="100" height="80"></td>
-                                    </tr>
-                                </table>
+                <details class="details-block">
+                    <summary>Детальніше</summary>
+                    <div class="yoga-info">
+                        <p><strong>Опис:</strong> інтенсивна йога з динамічними послідовностями, синхронізованими з
+                            диханням.</p>
+                        <p><strong>Прокачує:</strong> силу, витривалість, стабільність корпусу, кардіонавантаження та
+                            концентрацію.</p>
+                        <p><strong>Підходить для:</strong> людей із базовою підготовкою, тих, хто любить активні
+                            тренування.</p>
+                    </div>
+                </details>
 
-                                <h3>Кундаліні-йога</h3>
+            </div>
 
-                                <!-- рівень складності -->
-                                <p>
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_dark.svg" alt="" width="18" height="18">
-                                    <img src="images/fire_light.svg" alt="" width="18" height="18">
-                                </p>
+            <!-- кундаліні-йога -->
+            <div class="class-card">
 
-                                <!-- стрілочки -->
-                                <p>
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                    &nbsp;
-                                    <img src="images/arrow_button.svg" alt="" width="20" height="20">
-                                </p>
+                <div class="slider">
+                    <img class="slide active" src="images/classes-kundalini-right-01.png">
+                    <img class="slide" src="images/classes-kundalini-right-02.png">
+                    <img class="slide" src="images/classes-kundalini-right-03.png">
 
-                                <details>
-                                    <summary style="cursor:pointer; font-weight:bold; color:#2C4D4B;">Детальніше
-                                    </summary>
-                                    <p style="font-size:14px; text-align:justify; margin-top:8px;">
-                                        <b>Для кого підходить:</b> для тих, хто шукає глибоке розслаблення, гармонію та
-                                        пробудження внутрішньої енергії.<br><br>
-                                        <b>Опис:</b> Кундаліні-йога поєднує дихальні практики, мантри й медитацію. Вона
-                                        розвиває усвідомлення та внутрішню силу.
-                                    </p>
-                                </details>
-                            </td>
+                    <button class="arrow left">&#10094;</button>
+                    <button class="arrow right">&#10095;</button>
+                </div>
 
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                <div class="title-row">
+                    <h3>Кундаліні-йога</h3>
+                    <div class="level">
+                        <img src="images/fire_dark.svg">
+                        <img src="images/fire_dark.svg">
+                        <img src="images/fire_light.svg">
+                    </div>
+                </div>
 
-            <!-- квіти внизу (в тій самій головній таблиці, окремим рядком) -->
-            <tr>
-                <td align="center">
-                    <img src="images/flowerleft.png" alt="Декор зліва" width="220" style="margin-right:40px;">
-                    <img src="images/flowerright.png" alt="Декор справа" width="220">
-                </td>
-            </tr>
-        </table>
-    </main>
+                <details class="details-block">
+                    <summary>Детальніше</summary>
+                    <div class="yoga-info">
+                        <p><strong>Опис:</strong> практика, що поєднує мантри, дихання, медитації та плавні рухи.</p>
+                        <p><strong>Прокачує:</strong> нервову систему, емоційний баланс, усвідомленість.</p>
+                        <p><strong>Підходить для:</strong> людей зі стресом, емоційною втомою, тих, хто шукає спокій.
+                        </p>
+                    </div>
+                </details>
 
+            </div>
 
-    <!-- Футер -->
-    <footer>
-        <table width="100%" cellpadding="16" cellspacing="0" border="0" bgcolor="#FFF8E7">
-            <tr>
-                <td align="center">
-                    <p style="color:#2C4D4B;">&copy; 2025 ZENPOINT. Усі права захищені.
-                        <a href="contacts.html" style="color:#2C4D4B;">Зв’язатися з нами</a>
-                    </p>
-                </td>
-            </tr>
-        </table>
+        </div>
+    </section>
+    <!-- футер -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; 2025 ZENPOINT. Усі права захищені.</p>
+            <a href="contacts.html">Зв’язатися з нами</a>
+        </div>
     </footer>
+
+    <!-- скрипт слайдера -->
+    <script>
+        document.querySelectorAll(".class-card").forEach(card => {
+            const slides = card.querySelectorAll(".slide");
+            const btnLeft = card.querySelector(".arrow.left");
+            const btnRight = card.querySelector(".arrow.right");
+            let index = 0;
+
+            function showSlide(i) {
+                slides.forEach(s => s.classList.remove("active"));
+                slides[i].classList.add("active");
+            }
+
+            btnRight.addEventListener("click", () => {
+                index = (index + 1) % slides.length;
+                showSlide(index);
+            });
+
+            btnLeft.addEventListener("click", () => {
+                index = (index - 1 + slides.length) % slides.length;
+                showSlide(index);
+            });
+        });
+    </script>
+
+    <!-- модальне вікно -->
+    <div id="yoga-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title"></h2>
+            <div class="modal-text"></div>
+        </div>
+    </div>
+
+    <!-- скрипт модального -->
+    <script>
+        const modal = document.getElementById("yoga-modal");
+        const modalTitle = modal.querySelector(".modal-title");
+        const modalText = modal.querySelector(".modal-text");
+        const closeBtn = modal.querySelector(".close");
+
+        document.querySelectorAll(".class-card").forEach(card => {
+            const summary = card.querySelector(".details-block summary");
+            const title = card.querySelector("h3").textContent;
+            const blocks = card.querySelectorAll(".yoga-info p");
+
+            summary.addEventListener("click", e => {
+                e.preventDefault();
+
+                modalTitle.textContent = title;
+
+                let html = "";
+                blocks.forEach(p => html += `<p>${p.innerHTML}</p>`);
+                modalText.innerHTML = html;
+
+                modal.style.display = "block";
+            });
+        });
+
+        closeBtn.addEventListener("click", () => modal.style.display = "none");
+        window.addEventListener("click", e => {
+            if (e.target === modal) modal.style.display = "none";
+        });
+    </script>
 
 </body>
 
