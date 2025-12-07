@@ -1,22 +1,17 @@
-/* =======================
-   ЄДИНИЙ style.css (DEDUP)
-   ======================= */
 
-/* === КОЛЬОРОВА ПАЛІТРА (єдина) === */
+/* КОЛЬОРОВА ПАЛІТРА */
 :root {
-  --green-deep: #2D4B4B;   /* головний зелений */
-  --beige: #FFF8E7;        /* світлий беж */
-  --accent-grey: #637B79;  /* акцентний сіро-бірюзовий */
-  --text-dark: #1D1E1B;    /* темний для тексту */
+  --green-deep: #2D4B4B; 
+  --beige: #FFF8E7;       
+  --accent-grey: #637B79; 
+  --text-dark: #1D1E1B;    
 
   /* Налаштування каруселі */
   --photo-size: 122px;
   --carousel-speed: 35s;
 }
 
-/* =========================
-   СВІТЛА ТЕМА (index.html за замовчуванням)
-   ========================= */
+/* СВІТЛА ТЕМА */
 html, body {
   height: 110%;
   margin: 0;
@@ -27,10 +22,7 @@ html, body {
   color: var(--green-deep);
 }
 
-/* =========================
-   АЛЬТЕРНАТИВНА «ГЛИБОКА» ТЕМА
-   Активується: <body class="theme-deep">
-   ========================= */
+/* АЛЬТЕРНАТИВНА ТЕМА Активується: <body class="theme-deep"> */
 body.theme-deep {
   height: 100%;
   background-color: var(--green-deep);
@@ -38,7 +30,7 @@ body.theme-deep {
   font-family: 'Jura', sans-serif;
 }
 
-/* Фоновий радіальний градієнт (для глибокої теми) */
+/* Фоновий радіальний градієнт */
 body.theme-deep::after {
   content: "";
   position: absolute;
@@ -48,15 +40,11 @@ body.theme-deep::after {
   z-index: -1;
 }
 
-/* щоб контент не заходив під верхню плашку */
 .page-content {
   padding-top: 90px;
 }
 
-/* =========================
-   ВЕРХНЯ ГРАДІЄНТНА ПАНЕЛЬ / ТОПБАР (як на why.html)
-   ========================= */
-/* === ВЕРХНЯ ГРАДІЄНТНА ПАНЕЛЬ === */
+/* ВЕРХНЯ ГРАДІЄНТНА ПАНЕЛЬ / ТОПБАР  */
 .topbar {
   position: fixed;
   top: 0;
@@ -74,16 +62,13 @@ body.theme-deep::after {
   top: 0;
   height: 100%;
   pointer-events: none;
-  /* не блокує кліки */
   z-index: -1;
-  /* градієнти під контентом */
 }
 
 /* Лівий градієнт */
 .topbar-gradient.left {
   left: 0;
   width: 60vw;
-  /* адаптивна ширина */
   background: linear-gradient(90deg,
       var(--accent-grey) 1.69%,
       var(--beige) 66.48%);
@@ -93,7 +78,6 @@ body.theme-deep::after {
 .topbar-gradient.right {
   right: 0;
   width: 60vw;
-  /* адаптивна ширина */
   background: linear-gradient(270deg,
       var(--accent-grey) 1.69%,
       var(--beige) 68.48%);
@@ -104,9 +88,7 @@ body.theme-deep::after {
 .logo {
   position: absolute;
   top: 16px;
-  /* відстань зверху */
   left: 64px;
-  /* відстань від лівого краю */
   display: flex;
   align-items: center;
   gap: 2px;
@@ -120,7 +102,6 @@ body.theme-deep::after {
   font-size: 40px;
   line-height: 48px;
   color: #2C4D4B;
-  /* темно-зелений */
 }
 
 /* Частина POINT */
@@ -128,7 +109,6 @@ body.theme-deep::after {
   font-size: 40px;
   line-height: 48px;
   color: #1D1E1B;
-  /* темно-сірий */
 }
 
 /* === КНОПКИ НАВІГАЦІЇ === */
@@ -136,11 +116,9 @@ body.theme-deep::after {
   position: absolute;
   top: 14px;
   left: 535px;
-  /* зробили точніше, щоб реально 275px від лого */
   display: flex;
   align-items: center;
   gap: 24px;
-  /* відстань між кнопками */
   font-family: 'Jura', sans-serif;
 }
 
@@ -156,20 +134,16 @@ body.theme-deep::after {
   color: #2C4D4B;
   text-decoration: none;
   font-family: 'Jura', sans-serif;
-  /* ✅ новий шрифт */
   font-style: normal;
   font-weight: 600;
-  /* товщина */
   font-size: 20px;
-  /* розмір */
   line-height: 24px;
-  /* як у макеті */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.25s;
   padding: 0 20px;
 }
 
-/* ширини згідно з макетом */
+/* ширини */
 .btn:nth-child(1) {
   width: 170px;
 }
@@ -198,20 +172,14 @@ body.theme-deep::after {
   transform: translateY(-1px);
 }
 
-/* =========================
-   ІКОНИ СОЦМЕРЕЖ (як на why.html)
-   ========================= */
-/* === ІКОНИ СОЦМЕРЕЖ === */
+/* ІКОНИ СОЦМЕРЕЖ */
 .social-icons {
   position: absolute;
   top: 16px;
-  /* відстань від верхнього краю */
   right: 48px;
-  /* відступ від правого краю */
   display: flex;
   align-items: center;
   gap: 10px;
-  /* проміжок між іконками */
   z-index: 10;
 }
 
@@ -245,7 +213,7 @@ body.theme-deep::after {
   filter: brightness(0) invert(1);
 }
 
-/* Легка анімація при наведенні */
+/* анімація при наведенні */
 .icon:hover {
   background-color: #2C4D4B;
   transform: scale(1.1);
@@ -253,7 +221,7 @@ body.theme-deep::after {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== БУРГЕР-МЕНЮ ===== */
+/* БУРГЕР-МЕНЮ */
 .menu {
   position: relative;
   display: flex;
@@ -261,7 +229,6 @@ body.theme-deep::after {
   justify-content: center;
 }
 
-/* Прибрати стандартну стрілку summary */
 .menu summary {
   list-style: none;
 }
@@ -297,8 +264,6 @@ body.theme-deep::after {
   gap: 10px;
   min-width: 180px;
   z-index: 1000;
-
-  /* плавна поява */
   opacity: 0;
   transform: translateY(-10px);
   transition: 0.25s ease;
@@ -329,9 +294,7 @@ body.theme-deep::after {
   transform: translateX(4px);
 }
 
-/* =========================
-   ФОНОВІ ПАНЕЛІ ДЛЯ СВІТЛОЇ ТЕМИ
-   ========================= */
+/* ФОНОВІ ПАНЕЛІ ДЛЯ СВІТЛОЇ ТЕМИ */
 .left-rect,
 .right-rect {
   position: absolute;
@@ -350,9 +313,7 @@ body.theme-deep::after {
   background: linear-gradient(270deg, var(--accent-grey) 1.69%, var(--beige) 68.48%);
 }
 
-/* =========================
-   ГЕРОЙ-БЛОК ГОЛОВНОЇ
-   ========================= */
+/* ГЕРОЙ-БЛОК ГОЛОВНОЇ */
 .sticker-back {
   position: absolute; width: 8vw; max-width: 122px; aspect-ratio: 1/1;
   left: 50%; top: 18vh; transform: translateX(-50%);
@@ -386,9 +347,7 @@ body.theme-deep::after {
 }
 .flowerright img { width: 100%; height: auto; display: block; }
 
-/* =========================
-   КАРУСЕЛЬ
-   ========================= */
+/* КАРУСЕЛЬ */
 .photo-carousel {
   position: absolute; left: 50%; transform: translateX(-50%);
   width: 100vw; bottom: 45vh; overflow: hidden; z-index: 2;
@@ -407,9 +366,7 @@ body.theme-deep::after {
   100% { transform: translateX(calc(-1 * var(--photo-size) * 11)); }
 }
 
-/* =========================
-   КНОПКА "ЗАПИСАТИСЯ НА ПРОБНЕ"
-   ========================= */
+/* КНОПКА "ЗАПИСАТИСЯ НА ПРОБНЕ" */
    .trial-button-wrapper {
     position: absolute;
     left: 50%;
@@ -471,3 +428,4 @@ body.theme-deep::after {
     width: 50vw;
   }
 }
+
