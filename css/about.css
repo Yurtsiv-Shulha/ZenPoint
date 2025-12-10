@@ -40,11 +40,18 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 90px;
+    height: auto;
+    padding: 10px 24px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
     z-index: 1000;
     background: transparent;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
+  
   
   /* обидві частини плашки */
   .topbar-gradient {
@@ -75,17 +82,15 @@
   
   
   /* Логотип ZenPoint */
-  .logo {
-    position: absolute;
-    top: 16px;
-    left: 64px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-family: 'Gabarito', sans-serif;
-    font-weight: 600;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
   
   /* Частина ZEN */
   .logo .zen {
@@ -103,12 +108,12 @@
   
   /* Кнопки навігації */
   .nav-buttons {
-    position: absolute;
-    top: 14px;
-    left: 535px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
+    flex-wrap: wrap;     /* дозволяє перенос кнопок */
+    justify-content: center;
+    max-width: 60%;
     font-family: 'Jura', sans-serif;
   }
   
@@ -164,9 +169,6 @@
   
   /* Іконки соцмереж */
   .social-icons {
-    position: absolute;
-    top: 16px;
-    right: 48px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -203,7 +205,7 @@
     filter: brightness(0) invert(1);
   }
   
-  /* Легка анімація при наведенні */
+  /* анімація при наведенні */
   .icon:hover {
     background-color: #2C4D4B;
     transform: scale(1.1);
@@ -241,26 +243,24 @@
   }
   
   /* Випадаюче меню */
-  .menu .dropdown {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #FFF8E7;
-    border-radius: 12px;
-    padding: 14px 20px;
-    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 180px;
-    z-index: 1000;
-  
-    /* плавна поява */
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: 0.25s ease;
-    pointer-events: none;
-  }
+.menu .dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #FFF8E7;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+  pointer-events: none;
+}
   
   /* коли меню відкрите */
   .menu[open] .dropdown {
@@ -286,14 +286,6 @@
     transform: translateX(4px);
   }
   
-  
-  /* адаптивність градієнта */
-  @media (max-width: 600px) {
-    .topbar-gradient.left,
-    .topbar-gradient.right {
-      width: 50vw;
-    }
-  }
   
   /* Квіти на фоні*/
   
@@ -525,3 +517,213 @@
       width: 50vw;
     }
   }
+
+  /* =========================
+   АДАПТИВНІСТЬ TOPBAR ЯК НА index
+   ========================= */
+
+   @media (max-width: 1250px) {
+    .btn {
+      font-size: 18px;
+      padding: 0 16px;
+      height: 38px;
+    }
+    .nav-buttons {
+      gap: 12px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .btn {
+      font-size: 16px;
+      padding: 0 14px;
+      height: 36px;
+    }
+    .nav-buttons {
+      max-width: 50%;
+    }
+  }
+  
+  @media (max-width: 850px) {
+    .btn {
+      font-size: 14px;
+      padding: 0 12px;
+      height: 34px;
+    }
+    .nav-buttons {
+      max-width: 45%;
+    }
+  }
+  
+  @media (max-width: 750px) {
+    .btn {
+      font-size: 13px;
+      padding: 0 10px;
+      height: 32px;
+    }
+    .nav-buttons {
+      gap: 8px;
+      max-width: 42%;
+    }
+  }
+  
+  /* як на index: на телефонах працює бургер, а великі кнопки ховаємо,
+     щоб вони не налазили на іконки */
+  @media (max-width: 650px) {
+    .nav-buttons {
+      max-width: 100%;
+      order: 2;         /* опускаємо під логотип */
+      justify-content: center;
+    }
+    .topbar {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 14px;
+    }
+  }
+
+/* =========================
+   АДАПТИВНІСТЬ ДЛЯ БЛОКУ "ПРО НАС" І ТРЕНЕРІВ
+   ========================= */
+
+/* трохи дрібніший текст і менші відступи */
+@media (max-width: 1100px) {
+  .about-hero {
+    gap: 32px;
+  }
+
+  .about-block {
+    font-size: 13px;
+  }
+
+  .trainers-background-title {
+    font-size: 190px;
+  }
+}
+
+/* картинка зверху, текст під нею; тренери в 2 колонки */
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+  .nav-buttons {
+    display: none;
+  }
+
+  .about-photo {
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+
+  .about-title-pill {
+    margin-bottom: 24px;
+  }
+
+  .trainers-section {
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+
+  .trainers-background-title {
+    font-size: 170px;
+  }
+
+  .trainers-cards {
+    margin-top: 110px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .trainer-card {
+    padding: 72px 28px 32px;
+    border-radius: 42px;
+  }
+
+  .trainer-avatar {
+    top: -62px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .trainer-avatar img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* вузькі планшети / великі телефони – тренери по одному, картка не на весь екран */
+@media (max-width: 700px) {
+  .about-page {
+    padding: 0 18px;
+  }
+
+  .trainers-background-title {
+    font-size: 140px;
+  }
+
+  .trainers-cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 110px auto 0;
+  }
+
+  .trainer-card {
+    margin: 0 auto 28px;
+    padding: 68px 26px 32px;
+    border-radius: 40px;
+  }
+}
+
+/* маленькі телефони – ще трохи зменшуємо шрифти й "ТРЕНЕРИ",
+   щоб слово не вилізало за межі */
+@media (max-width: 500px) {
+  .about-page {
+    padding: 0 14px;
+  }
+
+  .about-title-pill {
+    width: 260px;
+    padding: 14px 18px;
+  }
+
+  .about-title-pill h1 {
+    font-size: 26px;
+  }
+
+  .about-block {
+    font-size: 12.5px;
+  }
+
+  .trainers-background-title {
+    font-size: 110px;
+  }
+
+  .trainer-card {
+    padding: 64px 22px 30px;
+    border-radius: 32px;
+  }
+
+  .trainer-name {
+    font-size: 18px;
+  }
+
+  .trainer-quote {
+    font-size: 13px;
+  }
+
+  .trainer-text {
+    font-size: 12px;
+  }
+
+  .trainer-avatar {
+    top: -56px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .trainer-avatar img {
+    width: 100px;
+    height: 100px;
+  }
+}
