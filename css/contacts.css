@@ -36,7 +36,6 @@ body.theme-deep::after {
   padding-top: 90px;
 }
 
-/* Верхня градієнтна панель */
 /* сам топбар */
 .topbar {
   position: fixed;
@@ -53,17 +52,14 @@ body.theme-deep::after {
   z-index: 1000;
   background: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-
-  /* ВАЖЛИВО: НІЯКОГО overflow тут! */
-  /* overflow: hidden;  <-- прибрати */
 }
 
 .topbar::before {
   content: "";
   position: absolute;
-  inset: 0;           /* top/right/bottom/left: 0 */
+  inset: 0;        
   z-index: -1;
-  pointer-events: none;  /* щоб градієнт не ловив кліки */
+  pointer-events: none; 
 
   /* один суцільний градієнт по всій ширині */
   background: linear-gradient(
@@ -72,35 +68,6 @@ body.theme-deep::after {
     var(--beige) 50%,
     var(--accent-grey) 100%
   );
-}
-
-
-
-/* обидві частини плашки */
-.topbar-gradient {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Лівий градієнт */
-.topbar-gradient.left {
-  left: 0;
-  width: 60vw;
-  background: linear-gradient(90deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 66.48%);
-}
-
-/* Правий градієнт */
-.topbar-gradient.right {
-  right: 0;
-  width: 60vw;
-  background: linear-gradient(270deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 68.48%);
 }
 
 
@@ -165,23 +132,16 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 .btn:nth-child(1) {
   width: 170px;
 }
-
-/* Наші заняття */
 .btn:nth-child(2) {
   width: 112px;
 }
-
-/* Про нас */
 .btn:nth-child(3) {
   width: 120px;
 }
-
-/* Розклад */
 .btn:nth-child(4) {
   width: 130px;
 }
 
-/* Контакти */
 
 /* ефект наведення */
 .btn:hover {
@@ -545,9 +505,9 @@ pointer-events: none;
   }
   
   
-/* =========================
+/*
  АДАПТИВНІСТЬ TOPBAR
- ========================= */
+ */
 
  @media (max-width: 600px) {
   .topbar-gradient.left,
@@ -556,13 +516,11 @@ pointer-events: none;
   }
 }
 
-/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
 @media (max-width: 900px) {
   .nav-buttons {
     display: none;
   }
 
-  /* бургер-меню стає компактнішим */
   .menu summary img {
     width: 32px;
     height: 32px;
@@ -581,8 +539,6 @@ pointer-events: none;
     font-size: 15px;
   }
 }
-
-/* до 700px – дрібні корекції меню */
 @media (max-width: 700px) {
   .menu .dropdown {
     font-size: 15px;
@@ -597,7 +553,6 @@ pointer-events: none;
   }
 }
 
-/* маленькі телефони */
 @media (max-width: 450px) {
   .menu .dropdown {
     font-size: 14px;
@@ -612,7 +567,6 @@ pointer-events: none;
   }
 }
 
-/* на дуже вузьких екранах – ще компактніше меню */
 @media (max-width: 480px) {
   .menu .dropdown {
     max-width: 75vw;
@@ -630,8 +584,6 @@ pointer-events: none;
     height: 30px;
   }
 }
-
-/* адаптивність розмірів кнопок і блоку навігації */
 @media (max-width: 1250px) {
   .btn {
     font-size: 18px;
@@ -678,11 +630,10 @@ pointer-events: none;
   }
 }
 
-/* коли екран вузький, дозволяємо топбару переноситися на два рядки */
 @media (max-width: 650px) {
   .nav-buttons {
     max-width: 100%;
-    order: 2;         /* опускаємо під логотип */
+    order: 2;       
     justify-content: center;
   }
 
@@ -693,4 +644,5 @@ pointer-events: none;
   }
 }
   
+
 
