@@ -1,87 +1,73 @@
 /* кольорова палітра */
 :root {
-  --green-deep: #2D4B4B; 
+  --green-deep: #2D4B4B;
   --beige: #FFF8E7;
   --accent-grey: #637B79;
   --text-dark: #1D1E1B;
-
-  /* налаштування каруселі */
-  --photo-size: 122px;
-  --carousel-speed: 35s;
 }
 
-/* світла тема */
 html, body {
-  margin: 0;
-  position: relative;
-  background-color: var(--beige);
-  font-family: 'Open Sans', sans-serif;
-  color: var(--green-deep);
-
-  /* дозвіл сторінці скролити */
-  height: auto;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-/* альтернативна тема (активується класом theme-deep) */
-body.theme-deep {
   height: 100%;
-  background-color: var(--green-deep);
-  color: var(--text-dark);
-  font-family: 'Jura', sans-serif;
+  margin: 0;
 }
 
-/* фоновий радіальний градієнт */
+body.theme-deep {
+  background-color: var(--green-deep);
+  color: var(--green-deep);
+  font-family: 'Jura', sans-serif;
+  position: relative;
+}
+
+
+/* Радіальний градієнт */
 body.theme-deep::after {
   content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 720px;
   background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
-  z-index: -1;
+  z-index: -2;
 }
 
-/* внутрішній відступ для контенту */
+
+/* відступ під топбар */
 .page-content {
   padding-top: 90px;
 }
 
-/* верхня панель */
+/* сам топбар */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  height: auto;
   padding: 10px 24px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   z-index: 1000;
   background: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-/* контейнер градієнта */
-.topbar-gradient {
+
+/* суцільний фон */
+.topbar::before {
+  content: "";
   position: absolute;
-  top: 0;
-  height: 100%;
-  pointer-events: none;
+  inset: 0;
   z-index: -1;
-}
-
-/* лівий градієнт */
-.topbar-gradient.left {
-  left: 0;
-  width: 60vw;
-  background: linear-gradient(90deg, var(--accent-grey) 1.69%, var(--beige) 66.48%);
-}
-
-/* правий градієнт */
-.topbar-gradient.right {
-  right: 0;
-  width: 60vw;
-  background: linear-gradient(270deg, var(--accent-grey) 1.69%, var(--beige) 68.48%);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--accent-grey) 0%,
+    var(--beige) 50%,
+    var(--accent-grey) 100%
+  );
 }
 
 /* логотип */
@@ -94,21 +80,19 @@ body.theme-deep::after {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* частина zen */
 .logo .zen {
   font-size: 40px;
   line-height: 48px;
   color: #2C4D4B;
 }
 
-/* частина point */
 .logo .point {
   font-size: 40px;
   line-height: 48px;
   color: #1D1E1B;
 }
 
-/* контейнер кнопок навігації */
+/* навігація */
 .nav-buttons {
   display: flex;
   align-items: center;
@@ -119,7 +103,7 @@ body.theme-deep::after {
   font-family: 'Jura', sans-serif;
 }
 
-/* кнопка */
+/* кнопки */
 .btn {
   display: flex;
   justify-content: center;
@@ -139,20 +123,18 @@ body.theme-deep::after {
   padding: 0 20px;
 }
 
-/* ширини кнопок */
 .btn:nth-child(1) { width: 170px; }
 .btn:nth-child(2) { width: 112px; }
 .btn:nth-child(3) { width: 120px; }
 .btn:nth-child(4) { width: 130px; }
 
-/* ефект наведення */
 .btn:hover {
   background: #2C4D4B;
   color: #FFF8E7;
   transform: translateY(-1px);
 }
 
-/* іконки соцмереж */
+/* соц. іконки */
 .social-icons {
   display: flex;
   align-items: center;
@@ -160,7 +142,6 @@ body.theme-deep::after {
   z-index: 10;
 }
 
-/* контейнер іконки */
 .icon {
   width: 41px;
   height: 41px;
@@ -173,7 +154,6 @@ body.theme-deep::after {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* зображення іконки */
 .icon img {
   width: 35px;
   height: 35px;
@@ -181,23 +161,17 @@ body.theme-deep::after {
   transition: 0.3s;
 }
 
-/* ефект наведення */
-.icon:hover {
-  background-color: #2C4D4B;
-}
-
-.icon:hover img {
-  filter: brightness(0) invert(1);
-}
-
-/* анімація при наведенні */
 .icon:hover {
   background-color: #2C4D4B;
   transform: scale(1.1);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* бургер-меню */
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* бургер */
 .menu {
   position: relative;
   display: flex;
@@ -213,7 +187,6 @@ body.theme-deep::after {
   display: none;
 }
 
-/* іконка меню */
 .menu summary img {
   width: 35px;
   height: 35px;
@@ -221,7 +194,6 @@ body.theme-deep::after {
   transition: 0.3s;
 }
 
-/* ефект наведення */
 .menu summary img:hover {
   transform: scale(1.15);
 }
@@ -246,14 +218,12 @@ body.theme-deep::after {
   pointer-events: none;
 }
 
-/* коли меню відкрите */
 .menu[open] .dropdown {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
 }
 
-/* стиль пунктів меню */
 .menu .dropdown a {
   color: #2C4D4B;
   text-decoration: none;
@@ -264,11 +234,63 @@ body.theme-deep::after {
   transition: 0.2s;
 }
 
-/* ефект наведення */
 .menu .dropdown a:hover {
   color: #1D1E1B;
   transform: translateX(4px);
 }
+
+
+.logo .zen {
+  font-size: 40px;
+  line-height: 48px;
+  color: #2C4D4B;
+}
+
+.logo .point {
+  font-size: 40px;
+  line-height: 48px;
+  color: #1D1E1B;
+}
+
+
+
+.btn:hover {
+  background: #2C4D4B;
+  color: #FFF8E7;
+  transform: translateY(-1px);
+}
+
+
+
+.icon:hover {
+  background-color: #2C4D4B;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+
+
+
+.menu summary img:hover {
+  transform: scale(1.15);
+}
+
+
+.menu[open] .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+
+.menu .dropdown a:hover {
+  color: #1D1E1B;
+  transform: translateX(4px);
+}
+
 
 /* фонові квіти */
 .flowers-bg {
@@ -345,7 +367,7 @@ body.theme-deep::after {
   width: 20px;
 }
 
-/* слайдер (перше оголошення) */
+/* слайдер */
 .slider {
   position: relative;
   width: 100%;
@@ -429,7 +451,7 @@ body.theme-deep::after {
   gap: 96px;
 }
 
-/* фото всередині картки (друге оголошення слайдера) */
+/* фото всередині картки */
 .slider {
   position: relative;
   width: 300px;
@@ -485,19 +507,20 @@ body.theme-deep::after {
 }
 
 .details-block summary {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  color: #2C4D4B;
-  font-family: 'Jura', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: #2C4D4B;
+    font-family: 'Jura', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .details-block summary:hover {
-  transform: scale(1.15);
-  opacity: 0.85;
+    transform: scale(1.15);
+    opacity: 0.85;
 }
 
 /* модальне вікно */
@@ -563,73 +586,163 @@ body.theme-deep::after {
   opacity: 0.7;
 }
 
-/* адаптивність (існуючі правила) */
-@media (max-width: 600px) {
+/* =========================
+ АДАПТИВНІСТЬ TOPBAR
+ ========================= */
+
+ @media (max-width: 600px) {
   .topbar-gradient.left,
   .topbar-gradient.right {
     width: 50vw;
   }
+}
 
-  .card img {
-    width: 80px !important;
+/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
+@media (max-width: 900px) {
+  .nav-buttons {
+    display: none;
+  }
+
+  /* бургер-меню стає компактнішим */
+  .menu summary img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .menu .dropdown {
+    font-size: 15px;
+    padding: 12px 16px;
+    min-width: 170px;
+    max-width: 70vw;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .menu .dropdown a {
+    font-size: 15px;
+  }
+}
+
+/* до 700px – дрібні корекції меню */
+@media (max-width: 700px) {
+  .menu .dropdown {
+    font-size: 15px;
+    padding: 12px 16px;
+    min-width: 170px;
+    max-width: 70vw;
+    max-height: 70vh;
+  }
+
+  .menu .dropdown a {
+    font-size: 15px;
+  }
+}
+
+/* маленькі телефони */
+@media (max-width: 450px) {
+  .menu .dropdown {
+    font-size: 14px;
+    padding: 10px 14px;
+    min-width: 150px;
+    max-width: 75vw;
+    max-height: 65vh;
+  }
+
+  .menu .dropdown a {
+    font-size: 14px;
+  }
+}
+
+/* на дуже вузьких екранах – ще компактніше меню */
+@media (max-width: 480px) {
+  .menu .dropdown {
+    max-width: 75vw;
+    max-height: 65vh;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .menu .dropdown a {
+    font-size: 14px;
+  }
+
+  .menu summary img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* адаптивність розмірів кнопок і блоку навігації */
+@media (max-width: 1250px) {
+  .btn {
+    font-size: 18px;
+    padding: 0 16px;
+    height: 38px;
+  }
+  .nav-buttons {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .btn {
+    font-size: 16px;
+    padding: 0 14px;
+    height: 36px;
+  }
+  .nav-buttons {
+    max-width: 50%;
   }
 }
 
 @media (max-width: 850px) {
+  .btn {
+    font-size: 14px;
+    padding: 0 12px;
+    height: 34px;
+  }
   .nav-buttons {
-    display: none;
+    max-width: 45%;
   }
 }
 
-/* адаптивність для секції занять і фону */
-
-/* трохи зменшуємо відступи та заголовок */
-@media (max-width: 1100px) {
-  .classes-section {
-    margin-top: 130px;
+@media (max-width: 750px) {
+  .btn {
+    font-size: 13px;
+    padding: 0 10px;
+    height: 32px;
   }
 
-  .classes-title {
-    width: auto;
-    padding: 22px 32px;
-    font-size: 42px;
-    margin-bottom: 50px;
-  }
-
-  .classes-cards {
-    gap: 72px;
-  }
-
-  .flower-left,
-  .flower-right {
-    width: 340px;
-    opacity: 0.23;
+  .nav-buttons {
+    gap: 8px;
+    max-width: 42%;
   }
 }
 
-/* приблизно планшети: три картки стають більш компактними, дозволяємо перенос */
-@media (max-width: 900px) {
-  .classes-section {
-    margin-top: 120px;
+/* коли екран вузький, дозволяємо топбару переноситися на два рядки */
+@media (max-width: 650px) {
+  .nav-buttons {
+    max-width: 100%;
+    order: 2;         /* опускаємо під логотип */
+    justify-content: center;
   }
 
-  .classes-cards {
+  .topbar {
     flex-wrap: wrap;
-    gap: 48px;
+    gap: 10px;
+    padding-bottom: 14px;
   }
+  
+}
+/* =========================
+   АДАПТИВНІСТЬ ДЛЯ КВІТОК
+   ========================= */
 
-  .class-card {
-    width: 280px;
-    height: auto;
-  }
-
-  .slider {
-    width: 280px;
-    height: 260px;
-  }
-
-  .classes-title {
-    font-size: 38px;
+/* планшети */
+@media (max-width: 900px) {
+  .flowers-bg {
+    top: 110px;
+    height: 420px;
   }
 
   .flower-left,
@@ -637,132 +750,192 @@ body.theme-deep::after {
     width: 300px;
     opacity: 0.22;
   }
+
+  .flower-right {
+    top: 150px;
+  }
 }
 
-/* вузькі планшети / великі телефони: картки в один стовпець */
-@media (max-width: 700px) {
-  .classes-section {
-    margin-top: 110px;
+/* телефони */
+@media (max-width: 600px) {
+  .flowers-bg {
+    top: 120px;
+    height: 360px;
   }
 
+  .flower-left,
+  .flower-right {
+    width: 230px;
+    opacity: 0.2;
+  }
+
+  .flower-right {
+    top: 160px;
+  }
+}
+
+/* дуже вузькі */
+@media (max-width: 400px) {
+  .flower-left,
+  .flower-right {
+    width: 200px;
+    opacity: 0.18;
+  }
+}
+
+
+
+/* =========================
+   АДАПТИВНІСТЬ ДЛЯ КАРТОК ЗАНЯТЬ
+   ========================= */
+
+/* трішки стискаємо на планшетах */
+@media (max-width: 1100px) {
+  .classes-cards {
+    gap: 64px;
+  }
+
+  .class-card {
+    width: 280px;
+  }
+
+  .slider {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* планшети / вузькі ноутбуки */
+@media (max-width: 900px) {
+  .classes-section {
+    margin-top: 120px;
+  }
+
+  .classes-cards {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .class-card {
+    width: 260px;
+  }
+
+  .slider {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* великі телефони / вузькі планшети:
+   картки в колонку, не прилипають до країв */
+@media (max-width: 700px) {
   .classes-title {
-    width: 100%;
-    max-width: 480px;
-    font-size: 34px;
-    padding: 18px 24px;
-    margin: 0 auto 40px;
+    width: min(360px, 90vw);
+    font-size: 40px;
+    padding: 20px 28px;
+    margin-bottom: 40px;
   }
 
   .classes-cards {
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 32px;
   }
 
   .class-card {
-    width: 90%;
-    max-width: 320px;
-    height: auto;
+    width: min(320px, 90vw);
   }
 
   .slider {
     width: 100%;
-    height: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1;   /* картинка квадратна, але вже гнучка */
   }
 
   .class-card h3 {
+    font-size: 30px;
+    line-height: 1.2;
     width: auto;
     height: auto;
-    font-size: 30px;
-    line-height: 1.25;
-  }
-
-  .flowers-bg {
-    height: 520px;
-  }
-
-  .flower-left,
-  .flower-right {
-    width: 260px;
-    opacity: 0.2;
   }
 }
 
-/* маленькі телефони: ще трохи зменшуємо розміри й шрифти */
-@media (max-width: 500px) {
-  .page-content {
-    padding-top: 80px;
-  }
-
-  .classes-section {
-    margin-top: 100px;
-  }
-
+/* маленькі телефони */
+@media (max-width: 480px) {
   .classes-title {
-    font-size: 30px;
-    padding: 16px 18px;
-    margin-bottom: 32px;
+    width: min(320px, 92vw);
+    font-size: 34px;
+    padding: 18px 22px;
   }
 
   .class-card {
-    max-width: 300px;
+    width: min(300px, 92vw);
   }
 
-  .slider {
-    height: 220px;
-  }
-
-  .title-row h3 {
+  .class-card h3 {
     font-size: 26px;
   }
 
   .details-block summary {
     font-size: 15px;
   }
+}
 
+
+
+/* =========================
+   АДАПТИВНІСТЬ ДЛЯ МОДАЛЬНОГО ВІКНА
+   ========================= */
+
+/* планшети / телефони */
+@media (max-width: 900px) {
   .modal-content {
-    margin: 100px auto;
-    padding: 20px 20px;
-    width: 94%;
-  }
-
-  .flower-left,
-  .flower-right {
-    width: 230px;
-    opacity: 0.18;
+    width: 92%;
+    max-width: 460px;
+    margin: 100px auto 40px;
+    padding: 20px 24px;
   }
 }
 
-/* дуже вузькі телефони: дрібні корекції */
+/* телефони */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 94%;
+    max-width: 420px;
+    margin: 80px auto 30px;
+    padding: 18px 20px;
+
+    /* щоб текст не вилазив за екран */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .modal-content h2 {
+    font-size: 22px;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+  }
+
+  .close {
+    font-size: 24px;
+  }
+}
+
+/* дуже вузькі телефони */
 @media (max-width: 400px) {
-  .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 5;
-    flex-shrink: 0;
+  .modal-content {
+    margin: 70px auto 20px;
+    padding: 16px 18px;
+    max-height: calc(100vh - 100px);
   }
 
-  .classes-title {
-    font-size: 28px;
+  .modal-content h2 {
+    font-size: 20px;
   }
 
-  .class-card {
-    max-width: 280px;
-  }
-
-  .slider {
-    height: 210px;
-  }
-
-  .details-block p {
+  .modal-content p {
     font-size: 13px;
   }
-
-  .flower-left,
-  .flower-right {
-    width: 210px;
-    opacity: 0.16;
-  }
 }
-
