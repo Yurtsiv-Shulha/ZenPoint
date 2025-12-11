@@ -152,6 +152,36 @@ if (yogaModal) {
   });
 }
 
+// перемикач теми
+const themeSwitch = document.getElementById('theme-switch');
+
+// перевірка збереженої теми
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'light') {
+  document.body.classList.remove('theme-deep');
+  themeSwitch.checked = false;
+} else {
+  document.body.classList.add('theme-deep');
+  themeSwitch.checked = true;
+}
+
+// коли користувач перемикає
+if (themeSwitch) {
+  themeSwitch.addEventListener('change', () => {
+    // темна тема
+    if (themeSwitch.checked) {
+      document.body.classList.add('theme-deep');
+      localStorage.setItem('theme', 'dark');
+    } 
+    // світла тема
+    else {
+      document.body.classList.remove('theme-deep');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
+
 
 
 
