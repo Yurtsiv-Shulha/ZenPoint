@@ -13,11 +13,28 @@
 /* світла тема: переоприділяємо змінні */
 body.light-theme {
   --green-deep: #8C6F52; /* коричневий */
-  --accent-grey: #A8927A;
+  --accent-grey: #C5B3A0; 
   --text-dark: #3c2f26;
-  background-color: var(--beige);
+
+  background: var(--beige);
   color: var(--text-dark);
 }
+
+/* кнопки у світлій темі */
+body.light-theme .btn,
+body.light-theme .trial-button,
+body.light-theme .submit-btn {
+  background: var(--green-deep);
+  color: #FFF8E7;
+  border-color: var(--green-deep);
+}
+
+/* ховери */
+body.light-theme .btn:hover,
+body.light-theme .trial-button:hover {
+  background: #6F563D;
+}
+
 
 /* світла тема — основний стиль */
 html, body {
@@ -162,6 +179,51 @@ body.theme-deep::after {
   transform: translateY(-1px);
 }
 
+/* перемикач теми — розташування поруч із соц. іконками */
+.theme-toggle {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* ховаємо чекбокс */
+.theme-toggle input {
+  display: none;
+}
+
+/* перемикач */
+.switch {
+  width: 52px;
+  height: 26px;
+  background: var(--green-deep);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* круг усередині */
+.switch::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: #F7C94A;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s ease;
+}
+
+/* світла тема — перемикач активний */
+#theme-switch:checked + .switch {
+  background: #8C6F52; /* коричневий */
+}
+
+#theme-switch:checked + .switch::after {
+  transform: translateX(26px);
+}
+
 /* іконки соцмереж */
 .social-icons {
   display: flex;
@@ -181,70 +243,6 @@ body.theme-deep::after {
   background: transparent;
   transition: 0.3s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-/* перемикач теми */
-.theme-toggle {
-  position: absolute;
-  right: 160px;
-  top: 24px;
-}
-/* контейнер */
-.theme-toggle {
-  position: absolute;
-  left: 40px;
-  top: 26px;
-}
-
-/* ховаємо стандартний чекбокс */
-.theme-toggle input {
-  display: none;
-}
-/* стиль контейнера */
-.theme-toggle {
-  position: absolute;
-  left: 40px;
-  top: 26px;
-  z-index: 2000;
-}
-
-/* ховаємо звичайний чекбокс */
-.theme-toggle input {
-  display: none;
-}
-
-/* перемикач */
-.switch {
-  width: 54px;
-  height: 28px;
-  background: #2D4B4B; /* зелений теми */
-  border-radius: 30px;
-  position: relative;
-  cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-/* круг всередині перемикача */
-.switch::after {
-  content: "";
-  width: 22px;
-  height: 22px;
-  background: #F7C94A; /* сонячний колір */
-  border-radius: 50%;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  transition: 0.3s;
-}
-
-/* активний стан — світла/коричнева тема */
-#theme-switch:checked + .switch {
-  background: #8C6F52; /* коричневий */
-}
-
-#theme-switch:checked + .switch::after {
-  transform: translateX(26px);
 }
 
 
@@ -927,6 +925,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
