@@ -1,37 +1,48 @@
 /* кольорова палітра */
 :root {
-  --green-deep: #2D4B4B;
+  --green-deep: #2D4B4B; 
   --beige: #FFF8E7;
   --accent-grey: #637B79;
   --text-dark: #1D1E1B;
+
+  /* налаштування каруселі */
+  --photo-size: 122px;
+  --carousel-speed: 35s;
 }
 
-/* базові стилі */
-html,
-body {
-  height: 100%;
-}
-
-body {
+/* світла тема */
+html, body {
   margin: 0;
+  position: relative;
+  background-color: var(--beige);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--green-deep);
+
+  /* дозвіл сторінці скролити */
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* альтернативна тема (активується класом theme-deep) */
+body.theme-deep {
+  height: 100%;
   background-color: var(--green-deep);
   color: var(--text-dark);
   font-family: 'Jura', sans-serif;
 }
 
-/* нижній радіальний фон */
-body::after {
+/* фоновий радіальний градієнт */
+body.theme-deep::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 0; right: 0; bottom: 0;
   height: 720px;
   background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
   z-index: -1;
 }
 
-/* відступ під топбар */
+/* внутрішній відступ для контенту */
 .page-content {
   padding-top: 90px;
 }
@@ -42,13 +53,15 @@ body::after {
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   z-index: 1000;
   background: transparent;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
-/* фонові градієнти */
+/* контейнер градієнта */
 .topbar-gradient {
   position: absolute;
   top: 0;
@@ -57,12 +70,14 @@ body::after {
   z-index: -1;
 }
 
+/* лівий градієнт */
 .topbar-gradient.left {
   left: 0;
   width: 60vw;
   background: linear-gradient(90deg, var(--accent-grey) 1.69%, var(--beige) 66.48%);
 }
 
+/* правий градієнт */
 .topbar-gradient.right {
   right: 0;
   width: 60vw;
@@ -71,46 +86,45 @@ body::after {
 
 /* логотип */
 .logo {
-  position: absolute;
-  top: 16px;
-  left: 64px;
   display: flex;
   align-items: center;
   gap: 2px;
   font-family: 'Gabarito', sans-serif;
   font-weight: 600;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* частина zen */
 .logo .zen {
   font-size: 40px;
   line-height: 48px;
   color: #2C4D4B;
 }
 
+/* частина point */
 .logo .point {
   font-size: 40px;
   line-height: 48px;
   color: #1D1E1B;
 }
 
-/* навігація */
+/* контейнер кнопок навігації */
 .nav-buttons {
-  position: absolute;
-  top: 14px;
-  left: 535px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 60%;
+  font-family: 'Jura', sans-serif;
 }
 
-/* кнопки */
+/* кнопка */
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 41px;
-  padding: 0 20px;
   background: transparent;
   border: 1px solid #2C4D4B;
   border-radius: 20px;
@@ -122,42 +136,31 @@ body::after {
   line-height: 24px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.25s;
+  padding: 0 20px;
 }
 
-/* ширини згідно макету */
-.btn:nth-child(1) {
-  width: 170px;
-}
+/* ширини кнопок */
+.btn:nth-child(1) { width: 170px; }
+.btn:nth-child(2) { width: 112px; }
+.btn:nth-child(3) { width: 120px; }
+.btn:nth-child(4) { width: 130px; }
 
-.btn:nth-child(2) {
-  width: 112px;
-}
-
-.btn:nth-child(3) {
-  width: 120px;
-}
-
-.btn:nth-child(4) {
-  width: 130px;
-}
-
+/* ефект наведення */
 .btn:hover {
   background: #2C4D4B;
   color: #FFF8E7;
   transform: translateY(-1px);
 }
 
-/* соц. іконки */
+/* іконки соцмереж */
 .social-icons {
-  position: absolute;
-  top: 16px;
-  right: 48px;
   display: flex;
   align-items: center;
   gap: 10px;
   z-index: 10;
 }
 
+/* контейнер іконки */
 .icon {
   width: 41px;
   height: 41px;
@@ -166,10 +169,11 @@ body::after {
   align-items: center;
   border-radius: 8px;
   background: transparent;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* зображення іконки */
 .icon img {
   width: 35px;
   height: 35px;
@@ -177,17 +181,23 @@ body::after {
   transition: 0.3s;
 }
 
+/* ефект наведення */
 .icon:hover {
   background-color: #2C4D4B;
-  transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .icon:hover img {
   filter: brightness(0) invert(1);
 }
 
-/* бургер меню */
+/* анімація при наведенні */
+.icon:hover {
+  background-color: #2C4D4B;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* бургер-меню */
 .menu {
   position: relative;
   display: flex;
@@ -203,6 +213,7 @@ body::after {
   display: none;
 }
 
+/* іконка меню */
 .menu summary img {
   width: 35px;
   height: 35px;
@@ -210,6 +221,7 @@ body::after {
   transition: 0.3s;
 }
 
+/* ефект наведення */
 .menu summary img:hover {
   transform: scale(1.15);
 }
@@ -222,7 +234,7 @@ body::after {
   background: #FFF8E7;
   border-radius: 12px;
   padding: 14px 20px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -230,26 +242,29 @@ body::after {
   z-index: 1000;
   opacity: 0;
   transform: translateY(-10px);
-  pointer-events: none;
   transition: 0.25s ease;
+  pointer-events: none;
 }
 
+/* коли меню відкрите */
 .menu[open] .dropdown {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
 }
 
+/* стиль пунктів меню */
 .menu .dropdown a {
   color: #2C4D4B;
   text-decoration: none;
-  font-family: 'Jura', sans-serif;
+  font-family: "Jura", sans-serif;
   font-weight: 600;
   font-size: 18px;
   padding: 4px 0;
   transition: 0.2s;
 }
 
+/* ефект наведення */
 .menu .dropdown a:hover {
   color: #1D1E1B;
   transform: translateX(4px);
@@ -750,3 +765,4 @@ body::after {
     opacity: 0.16;
   }
 }
+
