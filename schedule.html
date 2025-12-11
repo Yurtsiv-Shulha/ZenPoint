@@ -236,14 +236,6 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="schedule-cta">
-      <p>Готові спробувати? Оберіть час у розкладі та запишіться на перше пробне заняття.</p>
-      <div class="trial-btn-wrapper">
-        <a href="contacts.html" class="trial-btn">Записатися на пробне заняття</a>
-      </div>
-    </section>
-
   </main>
 
   <!-- Футер -->
@@ -253,7 +245,51 @@
       <a href="contacts.html">Зв’язатися з нами</a>
     </div>
   </footer>
+  
+<!-- cta -->
+<section class="schedule-cta">
+  <p>Готові спробувати? Оберіть час у розкладі та запишіться на перше пробне заняття.</p>
 
+  <div class="trial-btn-wrapper">
+    <button type="button" class="trial-button">
+      Записатися на пробне заняття
+    </button>
+  </div>
+</section>
+
+
+<!-- модальне вікно форми реєстрації -->
+<div id="register-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+
+    <h2 class="register-title">зареєструйся зараз</h2>
+    <p class="register-subtitle">і отримай безкоштовне заняття</p>
+
+    <form id="register-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="твоє ім’я*">
+        <small class="error-text"></small>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" id="phone" placeholder="твій телефон*">
+        <small class="error-text"></small>
+      </div>
+
+      <label class="agree-row">
+        <input type="checkbox" id="agree">
+        <span>я погоджуюсь з політикою конфіденційності</span>
+      </label>
+      <small class="error-text" id="agree-error"></small>
+
+      <button type="submit" class="submit-btn">відправити форму</button>
+    </form>
+  </div>
+</div>
+
+<script src="./js/main.js"></script>
 </body>
 </html>
+
 
