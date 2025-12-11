@@ -111,18 +111,15 @@ body::after {
   align-items: center;
   height: 41px;
   padding: 0 20px;
-
   background: transparent;
   border: 1px solid #2C4D4B;
   border-radius: 20px;
-
   color: #2C4D4B;
   text-decoration: none;
   font-family: 'Jura', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.25s;
 }
@@ -168,7 +165,6 @@ body::after {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-
   background: transparent;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
@@ -223,18 +219,15 @@ body::after {
   position: absolute;
   top: 50px;
   right: 0;
-
   background: #FFF8E7;
   border-radius: 12px;
   padding: 14px 20px;
-
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 180px;
   z-index: 1000;
-
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
@@ -261,7 +254,6 @@ body::after {
   color: #1D1E1B;
   transform: translateX(4px);
 }
-
 
 /* фонові квіти */
 .flowers-bg {
@@ -338,7 +330,7 @@ body::after {
   width: 20px;
 }
 
-/* слайдер */
+/* слайдер (перше оголошення) */
 .slider {
   position: relative;
   width: 100%;
@@ -422,7 +414,7 @@ body::after {
   gap: 96px;
 }
 
-/* фото всередині картки */
+/* фото всередині картки (друге оголошення слайдера) */
 .slider {
   position: relative;
   width: 300px;
@@ -478,20 +470,19 @@ body::after {
 }
 
 .details-block summary {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    color: #2C4D4B;
-    font-family: 'Jura', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-
-    transition: transform 0.25s ease, opacity 0.25s ease;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: #2C4D4B;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .details-block summary:hover {
-    transform: scale(1.15);
-    opacity: 0.85;
+  transform: scale(1.15);
+  opacity: 0.85;
 }
 
 /* модальне вікно */
@@ -557,9 +548,8 @@ body::after {
   opacity: 0.7;
 }
 
-/* адаптивність */
+/* адаптивність (існуючі правила) */
 @media (max-width: 600px) {
-
   .topbar-gradient.left,
   .topbar-gradient.right {
     width: 50vw;
@@ -573,5 +563,190 @@ body::after {
 @media (max-width: 850px) {
   .nav-buttons {
     display: none;
+  }
+}
+
+/* адаптивність для секції занять і фону */
+
+/* трохи зменшуємо відступи та заголовок */
+@media (max-width: 1100px) {
+  .classes-section {
+    margin-top: 130px;
+  }
+
+  .classes-title {
+    width: auto;
+    padding: 22px 32px;
+    font-size: 42px;
+    margin-bottom: 50px;
+  }
+
+  .classes-cards {
+    gap: 72px;
+  }
+
+  .flower-left,
+  .flower-right {
+    width: 340px;
+    opacity: 0.23;
+  }
+}
+
+/* приблизно планшети: три картки стають більш компактними, дозволяємо перенос */
+@media (max-width: 900px) {
+  .classes-section {
+    margin-top: 120px;
+  }
+
+  .classes-cards {
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+
+  .class-card {
+    width: 280px;
+    height: auto;
+  }
+
+  .slider {
+    width: 280px;
+    height: 260px;
+  }
+
+  .classes-title {
+    font-size: 38px;
+  }
+
+  .flower-left,
+  .flower-right {
+    width: 300px;
+    opacity: 0.22;
+  }
+}
+
+/* вузькі планшети / великі телефони: картки в один стовпець */
+@media (max-width: 700px) {
+  .classes-section {
+    margin-top: 110px;
+  }
+
+  .classes-title {
+    width: 100%;
+    max-width: 480px;
+    font-size: 34px;
+    padding: 18px 24px;
+    margin: 0 auto 40px;
+  }
+
+  .classes-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .class-card {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .slider {
+    width: 100%;
+    height: 240px;
+  }
+
+  .class-card h3 {
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  .flowers-bg {
+    height: 520px;
+  }
+
+  .flower-left,
+  .flower-right {
+    width: 260px;
+    opacity: 0.2;
+  }
+}
+
+/* маленькі телефони: ще трохи зменшуємо розміри й шрифти */
+@media (max-width: 500px) {
+  .page-content {
+    padding-top: 80px;
+  }
+
+  .classes-section {
+    margin-top: 100px;
+  }
+
+  .classes-title {
+    font-size: 30px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+  }
+
+  .class-card {
+    max-width: 300px;
+  }
+
+  .slider {
+    height: 220px;
+  }
+
+  .title-row h3 {
+    font-size: 26px;
+  }
+
+  .details-block summary {
+    font-size: 15px;
+  }
+
+  .modal-content {
+    margin: 100px auto;
+    padding: 20px 20px;
+    width: 94%;
+  }
+
+  .flower-left,
+  .flower-right {
+    width: 230px;
+    opacity: 0.18;
+  }
+}
+
+/* дуже вузькі телефони: дрібні корекції */
+@media (max-width: 400px) {
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+    flex-shrink: 0;
+  }
+
+  .classes-title {
+    font-size: 28px;
+  }
+
+  .class-card {
+    max-width: 280px;
+  }
+
+  .slider {
+    height: 210px;
+  }
+
+  .details-block p {
+    font-size: 13px;
+  }
+
+  .flower-left,
+  .flower-right {
+    width: 210px;
+    opacity: 0.16;
   }
 }
