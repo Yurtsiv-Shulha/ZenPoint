@@ -1,80 +1,80 @@
-// обробка форми та валідація
-
-const form = document.getElementById("register-form");
-
-if (form) {
-  form.addEventListener("submit", function (e) {
+// відкриття модального вікна по кліку
+document.querySelectorAll('.trial-button').forEach(btn => {
+  btn.addEventListener('click', e => {
     e.preventDefault();
+    const modal = document.getElementById('register-modal');
+    if (modal) modal.classList.remove('hidden');
+  });
+});
 
-    let valid = true;
+// закриття модалки
+const modal = document.getElementById('register-modal');
+if (modal) {
+  const closeBtn = modal.querySelector('.close-modal');
 
-    const name = document.getElementById("name");
-    const phone = document.getElementById("phone");
-    const agree = document.getElementById("agree");
+  closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-    const nameError = name.nextElementSibling;
-    const phoneError = phone.nextElementSibling;
-    const agreeError = document.getElementById("agree-error");
-
-    // очистити поля помилок
-    [name, phone].forEach(input => input.classList.remove("error"));
-    nameError.textContent = "";
-    phoneError.textContent = "";
-    agreeError.textContent = "";
-
-    // перевірка імені
-    if (name.value.trim().length < 3) {
-      valid = false;
-      name.classList.add("error");
-      nameError.textContent = "ім’я повинно містити щонайменше 3 символи";
-    }
-
-    // перевірка телефону
-    const digits = phone.value.replace(/\D/g, "");
-    if (digits.length < 10) {
-      valid = false;
-      phone.classList.add("error");
-      phoneError.textContent = "введіть коректний номер телефону";
-    }
-
-    // перевірка чекбокса
-    if (!agree.checked) {
-      valid = false;
-      agreeError.textContent = "потрібно підтвердити згоду";
-    }
-
-    // якщо є помилки — зупиняємось
-    if (!valid) return;
-
-    // модалка
-    const modal = document.getElementById("modal");
-    const modalMsg = document.getElementById("modal-message");
-
-    modalMsg.innerHTML = `
-      ім’я: <b>${name.value}</b><br>
-      телефон: <b>${phone.value}</b>
-    `;
-
-    modal.style.display = "flex";
-
-    // зберегти у localstorage
-    localStorage.setItem("userName", name.value);
-    localStorage.setItem("userPhone", phone.value);
-
-    // очистити форму
-    form.reset();
+  window.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.add('hidden');
   });
 }
 
-// закриття модалки
+// валідація
+const form = document.getElementById('register-form');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
 
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("modal-close");
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const agreeInput = document.getElementById('agree');
 
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => modal.style.display = "none");
+    const nameError = nameInput.nextElementSibling;
+    const phoneError = phoneInput.nextElementSibling;
+    const agreeError = document.getElementById('agree-error');
+
+    let valid = true;
+
+    // очищення
+    nameError.textContent = '';
+    phoneError.textContent = '';
+    agreeError.textContent = '';
+    nameInput.classList.remove('input-error');
+    phoneInput.classList.remove('input-error');
+
+    // ім'я
+    if (nameInput.value.trim().length < 3) {
+      valid = false;
+      nameError.textContent = 'ім’я має містити не менше 3 символів';
+      nameInput.classList.add('input-error');
+    }
+
+    // телефон
+    const phone = phoneInput.value.trim();
+    if (!/^\d{10,12}$/.test(phone)) {
+      valid = false;
+      phoneError.textContent = 'введіть правильний номер телефону';
+      phoneInput.classList.add('input-error');
+    }
+
+    // згода
+    if (!agreeInput.checked) {
+      valid = false;
+      agreeError.textContent = 'ви маєте погодитися з політикою';
+    }
+
+    if (!valid) return;
+
+    // збереження
+    localStorage.setItem('userName', nameInput.value.trim());
+    localStorage.setItem('userPhone', phoneInput.value.trim());
+
+    // очистка
+    form.reset();
+
+    // закриття
+    modal.classList.add('hidden');
+
+    alert('форма успішно надіслана');
+  });
 }
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) modal.style.display = "none";
-});
