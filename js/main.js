@@ -1,5 +1,5 @@
 // відкриття модального вікна по кліку
-document.querySelectorAll('.trial-button, .trial-btn').forEach(btn => {
+document.querySelectorAll('.trial-button').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
     document.getElementById('register-modal').classList.remove('hidden');
@@ -91,6 +91,7 @@ fetch("https://script.google.com/macros/s/AKfycbxatx8jLNh8FsbPE1DOOnPAlYWqlooNhn
     alert('форма успішно надіслана');
   });
 }
+
 
 
 
