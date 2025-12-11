@@ -118,6 +118,37 @@
     <img src="./images/flowerright.png" alt="Right decorative flower">
   </div>
 
-</body>
+<!-- модальне вікно форми реєстрації -->
+<div id="register-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
 
+    <h2 class="register-title">зареєструйся зараз</h2>
+    <p class="register-subtitle">і отримай безкоштовне заняття</p>
+
+    <form id="register-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="твоє ім’я*">
+        <small class="error-text"></small>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" id="phone" placeholder="твій телефон*">
+        <small class="error-text"></small>
+      </div>
+
+      <label class="agree-row">
+        <input type="checkbox" id="agree">
+        <span>я погоджуюсь з політикою конфіденційності</span>
+      </label>
+      <small class="error-text" id="agree-error"></small>
+
+      <button type="submit" class="submit-btn">відправити форму</button>
+    </form>
+  </div>
+</div>
+
+<script src="./js/main.js"></script>
+</body>
 </html>
+
