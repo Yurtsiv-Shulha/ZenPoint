@@ -176,8 +176,11 @@ if (themeSwitch) {
 
 // 2.1
 document.querySelectorAll('.class-card').forEach(card => {
-    card.style.backgroundColor = 'rgba(255,255,255,0.1)';
+    card.style.border = '3px solid #ff8800';
+    card.style.borderRadius = '12px';
 });
+
+
 
 
 
