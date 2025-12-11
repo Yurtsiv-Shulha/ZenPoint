@@ -49,6 +49,13 @@ body.theme-deep::after {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+.topbar-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* градієнт у топбарі */
 .topbar::before {
   content: "";
@@ -64,12 +71,6 @@ body.theme-deep::after {
   );
 }
 
-.topbar-inner {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 /* частини додаткових градієнтів */
 .topbar-gradient {
@@ -774,6 +775,7 @@ body.theme-deep::after {
     opacity: 0.16;
   }
 }
+
 
 
 
