@@ -180,6 +180,13 @@ document.querySelectorAll('.class-card').forEach(card => {
 });
 
 
+// 2.2 динамічна дата у футері
+const yearSpan = document.getElementById('footer-year');
+if (yearSpan) {
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+}
+
 
 
 
