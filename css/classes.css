@@ -509,7 +509,7 @@ body.theme-deep::after {
   justify-content: flex-end;
   cursor: pointer;
   font-family: 'Jura', sans-serif;
-  font-size: 1em;
+  font-size: 14px;
   font-weight: 600;
   color: #2C4D4B;
 }
@@ -927,6 +927,7 @@ body.theme-deep::after {
     font-size: 13px;
   }
 }
+
 
 
 
