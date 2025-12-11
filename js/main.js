@@ -174,11 +174,12 @@ if (themeSwitch) {
   }
 }
 
-// 2.1
+// 2.1 маніпуляція елементами
 document.querySelectorAll('.class-card').forEach(card => {
-    card.style.border = '3px solid #ff8800';
-    card.style.borderRadius = '12px';
+    card.style.backgroundColor = 'rgba(255, 150, 200, 0.35)';
 });
+
+
 
 
 
