@@ -64,6 +64,25 @@ body.theme-deep::after {
   );
 }
 
+.topbar-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 720px;
+  background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
+  z-index: -1;
+}
+
+
 /* частини додаткових градієнтів */
 .topbar-gradient {
   position: absolute;
@@ -589,6 +608,26 @@ body.theme-deep::after {
   }
 }
 
+@media (max-width: 650px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 14px;
+  }
+
+  .nav-buttons {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-icons {
+    order: 3;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* приблизно планшети: три картки стають більш компактними, дозволяємо перенос */
 @media (max-width: 900px) {
   .classes-section {
@@ -747,4 +786,5 @@ body.theme-deep::after {
     opacity: 0.16;
   }
 }
+
 
