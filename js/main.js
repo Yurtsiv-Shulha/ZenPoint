@@ -1,4 +1,4 @@
-// відкриття модального вікна по кліку
+// 4. відкриття модального вікна по кліку
 document.querySelectorAll('.trial-button').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
@@ -120,7 +120,7 @@ document.querySelectorAll('.class-card').forEach(card => {
 });
 
 
-// модальне вікно для "детальніше"
+// 2.2 модальне вікно для "детальніше"
 const yogaModal = document.getElementById('yoga-modal');
 if (yogaModal) {
   const modalTitle = yogaModal.querySelector('.modal-title');
@@ -152,7 +152,7 @@ if (yogaModal) {
   });
 }
 
-// перемикач теми
+// 3.1 перемикач теми
 const themeSwitch = document.getElementById("theme-switch");
 
 if (themeSwitch) {
@@ -173,6 +173,11 @@ if (themeSwitch) {
     themeSwitch.checked = true;
   }
 }
+
+// 2.1
+document.querySelectorAll('.class-card').forEach(card => {
+    card.style.backgroundColor = 'rgba(255,255,255,0.1)';
+});
 
 
 
