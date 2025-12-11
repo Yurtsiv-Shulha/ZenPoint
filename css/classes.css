@@ -27,7 +27,7 @@ body.theme-deep::after {
   bottom: 0;
   height: 720px;
   background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
-  z-index: -2;
+  z-index: -1;
 }
 
 .page-content {
@@ -70,18 +70,6 @@ body.theme-deep::after {
   align-items: center;
   justify-content: space-between;
 }
-
-body::after {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 720px;
-  background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
-  z-index: -1;
-}
-
 
 /* частини додаткових градієнтів */
 .topbar-gradient {
@@ -786,5 +774,6 @@ body::after {
     opacity: 0.16;
   }
 }
+
 
 
