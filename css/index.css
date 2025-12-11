@@ -446,6 +446,115 @@ body.theme-deep::after {
   box-shadow: 0 6px 10px rgba(0,0,0,0.35);
 }
 
+/* модальне вікно */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  backdrop-filter: blur(3px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* контейнер модалки */
+.modal-content {
+  width: 90%;
+  max-width: 540px;
+  background: var(--green-deep);
+  padding: 32px;
+  border-radius: 24px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+/* хрестик */
+.close-modal {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff8e7;
+}
+
+/* заголовок */
+.register-title {
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+  color: #fff8e7;
+}
+
+.register-subtitle {
+  text-align: center;
+  margin: 0 0 24px;
+  color: #fff8e7;
+  opacity: .9;
+}
+
+/* поля */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background: #fff8e7;
+  color: var(--green-deep);
+  font-family: 'Jura', sans-serif;
+}
+
+.error-text {
+  display: block;
+  color: #ffb3b3;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* згода */
+.agree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #fff8e7;
+}
+
+/* кнопка */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #fff8e7;
+  color: var(--green-deep);
+  border-radius: 14px;
+  border: none;
+  font-size: 18px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.submit-btn:hover {
+  opacity: .85;
+}
+
+.input-error {
+  border: 2px solid #ff7a7a !important;
+}
+
 /* адаптивність */
 
 /* до 1100px: зменшення шрифтів і фото */
@@ -738,4 +847,5 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
