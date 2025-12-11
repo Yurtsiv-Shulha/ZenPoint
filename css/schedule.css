@@ -19,7 +19,7 @@
     position: relative;
   }
   
-  /* Радіальний градієнт */
+  /* Радіальний градієнт*/
   body.theme-deep::after {
     content: "";
     position: fixed;
@@ -32,22 +32,50 @@
   }
   
   .page-content {
-    padding-top: 110px;
-    padding-bottom: 120px;
+    padding-top: 90px;
   }
   
-  /* Topbar*/
+  /* Верхня градієнтна панель */
+  /* сам топбар */
   .topbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 90px;
+    height: auto;
+    padding: 10px 24px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
     z-index: 1000;
     background: transparent;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  
+    /* ВАЖЛИВО: НІЯКОГО overflow тут! */
+    /* overflow: hidden;  <-- прибрати */
   }
   
+  .topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;           /* top/right/bottom/left: 0 */
+    z-index: -1;
+    pointer-events: none;  /* щоб градієнт не ловив кліки */
+  
+    /* один суцільний градієнт по всій ширині */
+    background: linear-gradient(
+      90deg,
+      var(--accent-grey) 0%,
+      var(--beige) 50%,
+      var(--accent-grey) 100%
+    );
+  }
+  
+  
+  
+  /* обидві частини плашки */
   .topbar-gradient {
     position: absolute;
     top: 0;
@@ -56,6 +84,7 @@
     z-index: -1;
   }
   
+  /* Лівий градієнт */
   .topbar-gradient.left {
     left: 0;
     width: 60vw;
@@ -64,6 +93,7 @@
         var(--beige) 66.48%);
   }
   
+  /* Правий градієнт */
   .topbar-gradient.right {
     right: 0;
     width: 60vw;
@@ -72,77 +102,102 @@
         var(--beige) 68.48%);
   }
   
+  
+  /* Логотип ZenPoint */
   .logo {
-    position: absolute;
-    top: 16px;
-    left: 64px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-family: 'Gabarito', sans-serif;
-    font-weight: 600;
-    text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
+  
+  
+  /* Частина ZEN */
   .logo .zen {
     font-size: 40px;
     line-height: 48px;
     color: #2C4D4B;
   }
+  
+  /* Частина POINT */
   .logo .point {
     font-size: 40px;
     line-height: 48px;
     color: #1D1E1B;
   }
   
+  /* Кнопки навігації */
   .nav-buttons {
-    position: absolute;
-    top: 14px;
-    left: 535px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
+    flex-wrap: wrap;     /* дозволяє перенос кнопок */
+    justify-content: center;
+    max-width: 60%;
+    font-family: 'Jura', sans-serif;
   }
   
+  /* Кнопки */
   .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 41px;
-    padding: 0 20px;
     background: transparent;
     border: 1px solid #2C4D4B;
     border-radius: 20px;
     color: #2C4D4B;
     text-decoration: none;
     font-family: 'Jura', sans-serif;
+    font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 0.25s;
+    padding: 0 20px;
   }
   
-  .btn:nth-child(1) { width: 170px; }
-  .btn:nth-child(2) { width: 112px; }
-  .btn:nth-child(3) { width: 120px; }
-  .btn:nth-child(4) { width: 130px; }
+  /* ширини згідно з макетом */
+  .btn:nth-child(1) {
+    width: 170px;
+  }
   
+  /* Наші заняття */
+  .btn:nth-child(2) {
+    width: 112px;
+  }
+  
+  /* Про нас */
+  .btn:nth-child(3) {
+    width: 120px;
+  }
+  
+  /* Розклад */
+  .btn:nth-child(4) {
+    width: 130px;
+  }
+  
+  /* Контакти */
+  
+  /* ефект наведення */
   .btn:hover {
     background: #2C4D4B;
     color: #FFF8E7;
     transform: translateY(-1px);
   }
   
-  /* Іконки */
+  /* Іконки соцмереж */
   .social-icons {
-    position: absolute;
-    top: 16px;
-    right: 48px;
     display: flex;
     align-items: center;
     gap: 10px;
+    z-index: 10;
   }
   
+  /* Контейнер іконки */
   .icon {
     width: 41px;
     height: 41px;
@@ -152,103 +207,128 @@
     border-radius: 8px;
     background: transparent;
     transition: 0.3s;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
+  
+  /* Зображення всередині */
   .icon img {
     width: 35px;
     height: 35px;
-    filter: brightness(0) saturate(100%) invert(9%) sepia(10%)
-            saturate(1100%) hue-rotate(127deg) brightness(97%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(9%) sepia(10%) saturate(1100%) hue-rotate(127deg) brightness(97%) contrast(90%);
     transition: 0.3s;
   }
+  
+  /* Ефект наведення */
   .icon:hover {
     background-color: #2C4D4B;
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.3);
   }
+  
   .icon:hover img {
     filter: brightness(0) invert(1);
   }
   
-  /* Бургер */
+  /* анімація при наведенні */
+  .icon:hover {
+    background-color: #2C4D4B;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Бургер-меню */
   .menu {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .menu summary { list-style: none; }
-  .menu summary::-webkit-details-marker { display: none; }
+  
+  /* Прибрати стандартну стрілку summary */
+  .menu summary {
+    list-style: none;
+  }
+  
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  /* Іконка меню */
   .menu summary img {
     width: 35px;
     height: 35px;
     cursor: pointer;
     transition: 0.3s;
   }
+  
+  /* Анімація наведення */
   .menu summary img:hover {
     transform: scale(1.15);
   }
+  
+  /* Випадаюче меню */
   .menu .dropdown {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #FFF8E7;
-    border-radius: 12px;
-    padding: 14px 20px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 180px;
-    z-index: 1000;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: 0.25s ease;
-    pointer-events: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #FFF8E7;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+  pointer-events: none;
   }
+  
+  /* коли меню відкрите */
   .menu[open] .dropdown {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
   }
+  
+  /* стиль пунктів */
   .menu .dropdown a {
     color: #2C4D4B;
     text-decoration: none;
-    font-family: 'Jura', sans-serif;
+    font-family: "Jura", sans-serif;
     font-weight: 600;
     font-size: 18px;
     padding: 4px 0;
     transition: 0.2s;
   }
+  
+  /* ефект наведення */
   .menu .dropdown a:hover {
     color: #1D1E1B;
     transform: translateX(4px);
   }
   
-  /* Адаптивність градієнта */
-  @media (max-width: 600px) {
-    .topbar-gradient.left,
-    .topbar-gradient.right {
-      width: 50vw;
-    }
-  }
   
-  /* Квітки */
+  /* Квіти на фоні*/
+  
   .flower {
     position: fixed;
     opacity: 0.4;
     z-index: -1;
   }
+  
   .flower-left {
     left: -80px;
     bottom: -40px;
-    width: 430px;
+    width: 420px;
   }
+  
   .flower-right {
     right: -60px;
-    top: 210px;
+    top: 260px;
     width: 380px;
   }
+  
   .flower img {
     width: 100%;
     height: auto;
@@ -287,23 +367,26 @@
     font-size: 16px;
     line-height: 1.5;
   }
-  
-  /* Таблиця */
-  .schedule-table-wrap {
-    margin-top: 24px;
-    background: rgba(255,248,231,0.06);
-    border-radius: 28px;
-    padding: 24px 26px 28px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-  }
-  
-  .schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: var(--beige);
-    font-size: 14px;
-  }
-  
+
+/* Таблиця */
+.schedule-table-wrap {
+  margin-top: 24px;
+  background: rgba(255,248,231,0.06);
+  border-radius: 28px;
+  padding: 24px 20px 28px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 720px;   
+  border-collapse: collapse;
+  color: var(--beige);
+  font-size: 14px;
+}
+
   .schedule-table thead {
     background: rgba(0,0,0,0.25);
   }
@@ -371,186 +454,6 @@
   .dot-medium { background: #F0B27A; }
   .dot-soft   { background: #CFEAD8; }
   
-  /* Кнопка на головній */
-  .schedule-cta {
-    margin-top: 32px;
-    text-align: center;
-    font-size: 16px;
-  }
-  .trial-btn-wrapper {
-    margin-top: 18px;
-    display: flex;
-    justify-content: center;
-  }
-  .trial-btn {
-    display: inline-block;
-    padding: 16px 40px;
-    border-radius: 999px;
-    background-color: #2D4B4B;
-    color: #FFF8E7;
-    font-family: 'Jura', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    text-decoration: none;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.5);
-    letter-spacing: 0.03em;
-    transition: 0.2s;
-  }
-  .trial-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.6);
-  }
-
-
-/* кнопка "записатися на пробне" */
-.trial-button-wrapper {
-  margin-top: 32px;
-}
-
-.trial-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 32px;
-
-  max-width: min(360px, 90vw);
-  width: auto;
-
-  background-color: var(--green-deep);
-  color: #FFF8E7;
-
-  font-family: 'Jura', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 30px;
-  text-decoration: none;
-  text-align: center;
-  white-space: normal;
-
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  transition: 0.25s ease;
-}
-
-.trial-button:hover {
-  background-color: #1E3535;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.35);
-}
-
-.hidden {
-  display: none;
-}
-
-/* модальне вікно */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3000;
-  backdrop-filter: blur(3px);
-}
-
-
-.modal.hidden {
-  display: none;
-}
-
-/* контейнер модалки */
-.modal-content {
-  width: 90%;
-  max-width: 540px;
-  background: var(--green-deep);
-  padding: 32px;
-  border-radius: 24px;
-  position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-}
-
-/* хрестик */
-.close-modal {
-  position: absolute;
-  right: 18px;
-  top: 12px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #fff8e7;
-}
-
-/* заголовок */
-.register-title {
-  text-align: center;
-  margin: 0 0 8px;
-  font-size: 28px;
-  font-family: 'Jura', sans-serif;
-  font-weight: 700;
-  color: #fff8e7;
-}
-
-.register-subtitle {
-  text-align: center;
-  margin: 0 0 24px;
-  color: #fff8e7;
-  opacity: .9;
-}
-
-/* поля */
-.form-group {
-  margin-bottom: 18px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 14px 18px;
-  font-size: 18px;
-  border-radius: 12px;
-  border: none;
-  background: #fff8e7;
-  color: var(--green-deep);
-  font-family: 'Jura', sans-serif;
-}
-
-.error-text {
-  display: block;
-  color: #ffb3b3;
-  font-size: 13px;
-  margin-top: 4px;
-}
-
-/* згода */
-.agree-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
-  color: #fff8e7;
-}
-
-/* кнопка */
-.submit-btn {
-  width: 100%;
-  padding: 14px;
-  background: #fff8e7;
-  color: var(--green-deep);
-  border-radius: 14px;
-  border: none;
-  font-size: 18px;
-  font-family: 'Jura', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: .25s ease;
-}
-
-.submit-btn:hover {
-  opacity: .85;
-}
-
-.input-error {
-  border: 2px solid #ff7a7a !important;
-}
-
   /* Футер */
   .footer {
     width: 100%;
@@ -573,5 +476,253 @@
   .footer-inner a:hover {
     opacity: 0.7;
   }
+
+
+  /* адаптивність */
+@media (max-width: 600px) {
+
+  .topbar-gradient.left,
+  .topbar-gradient.right {
+    width: 50vw;
+  }
+}
+
+/* =========================
+ АДАПТИВНІСТЬ TOPBAR
+ ========================= */
+
+ @media (max-width: 600px) {
+  .topbar-gradient.left,
+  .topbar-gradient.right {
+    width: 50vw;
+  }
+}
+
+/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
+@media (max-width: 900px) {
+  .nav-buttons {
+    display: none;
+  }
+
+  /* бургер-меню стає компактнішим */
+  .menu summary img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .menu .dropdown {
+    font-size: 15px;
+    padding: 12px 16px;
+    min-width: 170px;
+    max-width: 70vw;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .menu .dropdown a {
+    font-size: 15px;
+  }
+}
+
+/* до 700px – дрібні корекції меню */
+@media (max-width: 700px) {
+  .menu .dropdown {
+    font-size: 15px;
+    padding: 12px 16px;
+    min-width: 170px;
+    max-width: 70vw;
+    max-height: 70vh;
+  }
+
+  .menu .dropdown a {
+    font-size: 15px;
+  }
+}
+
+/* маленькі телефони */
+@media (max-width: 450px) {
+  .menu .dropdown {
+    font-size: 14px;
+    padding: 10px 14px;
+    min-width: 150px;
+    max-width: 75vw;
+    max-height: 65vh;
+  }
+
+  .menu .dropdown a {
+    font-size: 14px;
+  }
+}
+
+/* на дуже вузьких екранах – ще компактніше меню */
+@media (max-width: 480px) {
+  .menu .dropdown {
+    max-width: 75vw;
+    max-height: 65vh;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .menu .dropdown a {
+    font-size: 14px;
+  }
+
+  .menu summary img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* адаптивність розмірів кнопок і блоку навігації */
+@media (max-width: 1250px) {
+  .btn {
+    font-size: 18px;
+    padding: 0 16px;
+    height: 38px;
+  }
+  .nav-buttons {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .btn {
+    font-size: 16px;
+    padding: 0 14px;
+    height: 36px;
+  }
+  .nav-buttons {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 850px) {
+  .btn {
+    font-size: 14px;
+    padding: 0 12px;
+    height: 34px;
+  }
+  .nav-buttons {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 750px) {
+  .btn {
+    font-size: 13px;
+    padding: 0 10px;
+    height: 32px;
+  }
+
+  .nav-buttons {
+    gap: 8px;
+    max-width: 42%;
+  }
+}
+
+/* коли екран вузький, дозволяємо топбару переноситися на два рядки */
+@media (max-width: 650px) {
+  .nav-buttons {
+    max-width: 100%;
+    order: 2;         /* опускаємо під логотип */
+    justify-content: center;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 14px;
+  }
+}
+
+/* Планшети / вузькі ноутбуки */
+@media (max-width: 900px) {
+  .schedule-page {
+    padding: 0 16px 40px;
+  }
+
+  .schedule-title-pill {
+    padding: 14px 28px;
+  }
+
+  .schedule-title-pill h1 {
+    font-size: 26px;
+  }
+
+  .schedule-intro {
+    font-size: 14px;
+  }
+
+  .schedule-table-wrap {
+    padding: 18px 14px 22px;
+  }
+
+  .schedule-table {
+    font-size: 13px;
+    min-width: 680px;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 8px 8px;
+  }
+
+  .schedule-legend {
+    font-size: 11px;
+    gap: 10px;
+  }
+}
+
+/* Телефони */
+@media (max-width: 600px) {
+  .schedule-page {
+    padding: 0 12px 36px;
+  }
+
+  .schedule-hero {
+    margin-bottom: 24px;
+  }
+
+  .schedule-title-pill {
+    width: 100%;
+    max-width: 360px;
+    padding: 12px 18px;
+  }
+
+  .schedule-title-pill h1 {
+    font-size: 22px;
+  }
+
+  .schedule-intro {
+    font-size: 13px;
+  }
+
+  .schedule-table-wrap {
+    padding: 14px 10px 18px;
+    border-radius: 22px;
+  }
+
+  .schedule-table {
+    font-size: 12px;
+    min-width: 640px;   /* трохи менше, щоб на дуже вузьких теж влазило */
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 6px 6px;
+  }
+
+  .time-cell {
+    font-size: 12px;
+  }
+
+  .schedule-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 10px;
+  }
+}
+
 
   
