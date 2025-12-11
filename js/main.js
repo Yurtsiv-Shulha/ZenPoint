@@ -153,34 +153,29 @@ if (yogaModal) {
 }
 
 // перемикач теми
-const themeSwitch = document.getElementById('theme-switch');
+const switcher = document.getElementById('theme-switch');
 
-// перевірка збереженої теми
+// коли натиснули перемикач
+switcher?.addEventListener('change', () => {
+  if (switcher.checked) {
+    document.body.classList.add('light-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.body.classList.remove('light-theme');
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// при відкритті сторінки
 const savedTheme = localStorage.getItem('theme');
-
 if (savedTheme === 'light') {
-  document.body.classList.remove('theme-deep');
-  themeSwitch.checked = false;
-} else {
-  document.body.classList.add('theme-deep');
-  themeSwitch.checked = true;
+  document.body.classList.add('light-theme');
+
+  // ставимо перемикач у правильний стан
+  const s = document.getElementById('theme-switch');
+  if (s) s.checked = true;
 }
 
-// коли користувач перемикає
-if (themeSwitch) {
-  themeSwitch.addEventListener('change', () => {
-    // темна тема
-    if (themeSwitch.checked) {
-      document.body.classList.add('theme-deep');
-      localStorage.setItem('theme', 'dark');
-    } 
-    // світла тема
-    else {
-      document.body.classList.remove('theme-deep');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-}
 
 
 
