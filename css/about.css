@@ -34,7 +34,6 @@ body.theme-deep::after {
   padding-top: 90px;
 }
 
-/* Верхня градієнтна панель */
 /* сам топбар */
 .topbar {
   position: fixed;
@@ -59,9 +58,9 @@ body.theme-deep::after {
 .topbar::before {
   content: "";
   position: absolute;
-  inset: 0;           /* top/right/bottom/left: 0 */
+  inset: 0;          
   z-index: -1;
-  pointer-events: none;  /* щоб градієнт не ловив кліки */
+  pointer-events: none; 
 
   /* один суцільний градієнт по всій ширині */
   background: linear-gradient(
@@ -70,35 +69,6 @@ body.theme-deep::after {
     var(--beige) 50%,
     var(--accent-grey) 100%
   );
-}
-
-
-
-/* обидві частини плашки */
-.topbar-gradient {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Лівий градієнт */
-.topbar-gradient.left {
-  left: 0;
-  width: 60vw;
-  background: linear-gradient(90deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 66.48%);
-}
-
-/* Правий градієнт */
-.topbar-gradient.right {
-  right: 0;
-  width: 60vw;
-  background: linear-gradient(270deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 68.48%);
 }
 
 
@@ -164,22 +134,15 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 170px;
 }
 
-/* Наші заняття */
 .btn:nth-child(2) {
   width: 112px;
 }
-
-/* Про нас */
 .btn:nth-child(3) {
   width: 120px;
 }
-
-/* Розклад */
 .btn:nth-child(4) {
   width: 130px;
 }
-
-/* Контакти */
 
 /* ефект наведення */
 .btn:hover {
@@ -241,7 +204,6 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   justify-content: center;
 }
 
-/* Прибрати стандартну стрілку summary */
 .menu summary {
   list-style: none;
 }
@@ -309,7 +271,6 @@ pointer-events: none;
 
 
 /* Квіти на фоні*/
-
 .flower {
   position: fixed;
   opacity: 0.4;
@@ -539,9 +500,9 @@ pointer-events: none;
   }
 }
 
-/* =========================
+/*
  АДАПТИВНІСТЬ TOPBAR
- ========================= */
+ */
 
  @media (max-width: 600px) {
   .topbar-gradient.left,
@@ -576,7 +537,6 @@ pointer-events: none;
   }
 }
 
-/* до 700px – дрібні корекції меню */
 @media (max-width: 700px) {
   .menu .dropdown {
     font-size: 15px;
@@ -591,7 +551,6 @@ pointer-events: none;
   }
 }
 
-/* маленькі телефони */
 @media (max-width: 450px) {
   .menu .dropdown {
     font-size: 14px;
@@ -606,7 +565,6 @@ pointer-events: none;
   }
 }
 
-/* на дуже вузьких екранах – ще компактніше меню */
 @media (max-width: 480px) {
   .menu .dropdown {
     max-width: 75vw;
@@ -625,7 +583,6 @@ pointer-events: none;
   }
 }
 
-/* адаптивність розмірів кнопок і блоку навігації */
 @media (max-width: 1250px) {
   .btn {
     font-size: 18px;
@@ -672,11 +629,10 @@ pointer-events: none;
   }
 }
 
-/* коли екран вузький, дозволяємо топбару переноситися на два рядки */
 @media (max-width: 650px) {
   .nav-buttons {
     max-width: 100%;
-    order: 2;         /* опускаємо під логотип */
+    order: 2;         
     justify-content: center;
   }
 
@@ -687,9 +643,9 @@ pointer-events: none;
   }
 }
 
-/* =========================
+/* 
  АДАПТИВНІСТЬ ДЛЯ БЛОКУ "ПРО НАС" І ТРЕНЕРІВ
- ========================= */
+*/
 
 /* трохи дрібніший текст і менші відступи */
 @media (max-width: 1100px) {
@@ -757,7 +713,6 @@ pointer-events: none;
 }
 }
 
-/* вузькі планшети / великі телефони – тренери по одному, картка не на весь екран */
 @media (max-width: 700px) {
 .about-page {
   padding: 0 18px;
@@ -782,8 +737,6 @@ pointer-events: none;
 }
 }
 
-/* маленькі телефони – ще трохи зменшуємо шрифти й "ТРЕНЕРИ",
- щоб слово не вилізало за межі */
 @media (max-width: 500px) {
 
 .about-page {
@@ -894,5 +847,6 @@ pointer-events: none;
     height: 100px;
   }
   }
+
 
 
