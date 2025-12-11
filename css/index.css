@@ -10,18 +10,14 @@
   --carousel-speed: 35s;
 }
 
-/* світла тема */
+/* світла тема: переоприділяємо змінні */
 body.light-theme {
-  background-color: #f2e8d5; /* бежевий фон */
-  color: #3c2f26; /* темно-коричневий */
+  --green-deep: #8C6F52; /* коричневий */
+  --accent-grey: #A8927A;
+  --text-dark: #3c2f26;
+  background-color: var(--beige);
+  color: var(--text-dark);
 }
-
-/* світла тема для topbar */
-body.light-theme .topbar-gradient.left,
-body.light-theme .topbar-gradient.right {
-  background: linear-gradient(90deg, #d8c3a5, #f2e8d5);
-}
-
 
 /* світла тема — основний стиль */
 html, body {
@@ -204,12 +200,24 @@ body.theme-deep::after {
 .theme-toggle input {
   display: none;
 }
+/* стиль контейнера */
+.theme-toggle {
+  position: absolute;
+  left: 40px;
+  top: 26px;
+  z-index: 2000;
+}
+
+/* ховаємо звичайний чекбокс */
+.theme-toggle input {
+  display: none;
+}
 
 /* перемикач */
 .switch {
-  width: 52px;
+  width: 54px;
   height: 28px;
-  background: #2c4d4b;
+  background: #2D4B4B; /* зелений теми */
   border-radius: 30px;
   position: relative;
   cursor: pointer;
@@ -217,12 +225,12 @@ body.theme-deep::after {
   display: inline-block;
 }
 
-/* круг */
+/* круг всередині перемикача */
 .switch::after {
   content: "";
   width: 22px;
   height: 22px;
-  background: #f7c94a;
+  background: #F7C94A; /* сонячний колір */
   border-radius: 50%;
   position: absolute;
   top: 3px;
@@ -230,13 +238,13 @@ body.theme-deep::after {
   transition: 0.3s;
 }
 
-/* активна тема (світла) */
+/* активний стан — світла/коричнева тема */
 #theme-switch:checked + .switch {
-  background: #8c6f52; /* бежево-коричневий */
+  background: #8C6F52; /* коричневий */
 }
 
 #theme-switch:checked + .switch::after {
-  transform: translateX(24px);
+  transform: translateX(26px);
 }
 
 
@@ -919,6 +927,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
