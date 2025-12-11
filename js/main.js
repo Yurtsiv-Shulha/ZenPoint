@@ -92,6 +92,62 @@ fetch("https://script.google.com/macros/s/AKfycbxatx8jLNh8FsbPE1DOOnPAlYWqlooNhn
   });
 }
 
+    <!-- скрипт слайдера -->
+    <script>
+        document.querySelectorAll(".class-card").forEach(card => {
+            const slides = card.querySelectorAll(".slide");
+            const btnLeft = card.querySelector(".arrow.left");
+            const btnRight = card.querySelector(".arrow.right");
+            let index = 0;
+
+            function showSlide(i) {
+                slides.forEach(s => s.classList.remove("active"));
+                slides[i].classList.add("active");
+            }
+
+            btnRight.addEventListener("click", () => {
+                index = (index + 1) % slides.length;
+                showSlide(index);
+            });
+
+            btnLeft.addEventListener("click", () => {
+                index = (index - 1 + slides.length) % slides.length;
+                showSlide(index);
+            });
+        });
+    </script>
+
+
+    <!-- скрипт модального -->
+    <script>
+        const modal = document.getElementById("yoga-modal");
+        const modalTitle = modal.querySelector(".modal-title");
+        const modalText = modal.querySelector(".modal-text");
+        const closeBtn = modal.querySelector(".close");
+
+        document.querySelectorAll(".class-card").forEach(card => {
+            const summary = card.querySelector(".details-block summary");
+            const title = card.querySelector("h3").textContent;
+            const paragraphs = card.querySelectorAll(".yoga-info p");
+
+            summary.addEventListener("click", e => {
+                e.preventDefault();
+
+                modalTitle.textContent = title;
+
+                let html = "";
+                paragraphs.forEach(p => html += `<p>${p.innerHTML}</p>`);
+                modalText.innerHTML = html;
+
+                modal.style.display = "block";
+            });
+        });
+
+        closeBtn.addEventListener("click", () => modal.style.display = "none");
+        window.addEventListener("click", e => {
+            if (e.target === modal) modal.style.display = "none";
+        });
+    </script>
 
 
 
