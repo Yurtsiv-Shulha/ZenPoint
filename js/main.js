@@ -155,7 +155,7 @@ if (yogaModal) {
 // перемикач теми
 const switcher = document.getElementById('theme-switch');
 
-// коли натиснули перемикач
+// при зміні стану перемикача
 switcher?.addEventListener('change', () => {
   if (switcher.checked) {
     document.body.classList.add('light-theme');
@@ -166,12 +166,11 @@ switcher?.addEventListener('change', () => {
   }
 });
 
-// при відкритті сторінки
+// при завантаженні сторінки
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
   document.body.classList.add('light-theme');
 
-  // ставимо перемикач у правильний стан
   const s = document.getElementById('theme-switch');
   if (s) s.checked = true;
 }
