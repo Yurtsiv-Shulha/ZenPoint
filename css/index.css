@@ -10,6 +10,19 @@
   --carousel-speed: 35s;
 }
 
+/* світла тема */
+body.light-theme {
+  background-color: #f2e8d5; /* бежевий фон */
+  color: #3c2f26; /* темно-коричневий */
+}
+
+/* світла тема для topbar */
+body.light-theme .topbar-gradient.left,
+body.light-theme .topbar-gradient.right {
+  background: linear-gradient(90deg, #d8c3a5, #f2e8d5);
+}
+
+
 /* світла тема — основний стиль */
 html, body {
   margin: 0;
@@ -906,6 +919,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
