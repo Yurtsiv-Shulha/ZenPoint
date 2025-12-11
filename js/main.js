@@ -179,6 +179,10 @@ if (themeSwitch) {
 //     card.style.backgroundColor = 'rgba(255, 182, 193, 0.35)';
 // });
 
+document.querySelectorAll('.class-card').forEach(card => {
+    card.style.backgroundColor = "";
+});
+
 // 2.2 динамічна дата у футері
 const yearSpan = document.getElementById('footer-year');
 if (yearSpan) {
@@ -220,6 +224,7 @@ document.addEventListener('keydown', e => {
     }
 
 });
+
 
 
 
