@@ -446,6 +446,10 @@ body.theme-deep::after {
   box-shadow: 0 6px 10px rgba(0,0,0,0.35);
 }
 
+.hidden {
+  display: none;
+}
+
 /* модальне вікно */
 .modal {
   position: fixed;
@@ -457,6 +461,7 @@ body.theme-deep::after {
   z-index: 3000;
   backdrop-filter: blur(3px);
 }
+
 
 .modal.hidden {
   display: none;
@@ -847,5 +852,6 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
