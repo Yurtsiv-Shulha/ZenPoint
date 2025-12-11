@@ -1,4 +1,4 @@
-/* кольорова палітра */
+/* палітра */
 :root {
   --green-deep: #2D4B4B;
   --beige: #FFF8E7;
@@ -6,49 +6,65 @@
   --text-dark: #1D1E1B;
 }
 
-/* базові стилі */
-html,
-body {
+html, body {
   height: 100%;
-}
-
-body {
   margin: 0;
-  background-color: var(--green-deep);
-  color: var(--text-dark);
-  font-family: 'Jura', sans-serif;
 }
 
-/* нижній радіальний фон */
-body::after {
+body.theme-deep {
+  background-color: var(--green-deep);
+  color: var(--beige);
+  font-family: 'Jura', sans-serif;
+  position: relative;
+}
+
+/* радіальний градієнт */
+body.theme-deep::after {
   content: "";
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   height: 720px;
   background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
-  z-index: -1;
+  z-index: -2;
 }
 
-/* відступ під топбар */
 .page-content {
   padding-top: 90px;
 }
 
-/* верхня панель */
+/* топбар */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   z-index: 1000;
   background: transparent;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* фонові градієнти */
+/* градієнт у топбарі */
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--accent-grey) 0%,
+    var(--beige) 50%,
+    var(--accent-grey) 100%
+  );
+}
+
+/* частини додаткових градієнтів */
 .topbar-gradient {
   position: absolute;
   top: 0;
@@ -71,15 +87,12 @@ body::after {
 
 /* логотип */
 .logo {
-  position: absolute;
-  top: 16px;
-  left: 64px;
   display: flex;
   align-items: center;
   gap: 2px;
   font-family: 'Gabarito', sans-serif;
   font-weight: 600;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logo .zen {
@@ -94,23 +107,22 @@ body::after {
   color: #1D1E1B;
 }
 
-/* навігація */
+/* кнопки навігації */
 .nav-buttons {
-  position: absolute;
-  top: 14px;
-  left: 535px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 60%;
+  font-family: 'Jura', sans-serif;
 }
 
-/* кнопки */
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 41px;
-  padding: 0 20px;
   background: transparent;
   border: 1px solid #2C4D4B;
   border-radius: 20px;
@@ -119,27 +131,15 @@ body::after {
   font-family: 'Jura', sans-serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 24px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0 20px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
   transition: 0.25s;
 }
 
-/* ширини згідно макету */
-.btn:nth-child(1) {
-  width: 170px;
-}
-
-.btn:nth-child(2) {
-  width: 112px;
-}
-
-.btn:nth-child(3) {
-  width: 120px;
-}
-
-.btn:nth-child(4) {
-  width: 130px;
-}
+.btn:nth-child(1) { width: 170px; }
+.btn:nth-child(2) { width: 112px; }
+.btn:nth-child(3) { width: 120px; }
+.btn:nth-child(4) { width: 130px; }
 
 .btn:hover {
   background: #2C4D4B;
@@ -147,11 +147,8 @@ body::after {
   transform: translateY(-1px);
 }
 
-/* соц. іконки */
+/* соцмережі */
 .social-icons {
-  position: absolute;
-  top: 16px;
-  right: 48px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -166,7 +163,7 @@ body::after {
   align-items: center;
   border-radius: 8px;
   background: transparent;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
   transition: 0.3s;
 }
 
@@ -180,14 +177,14 @@ body::after {
 .icon:hover {
   background-color: #2C4D4B;
   transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
 .icon:hover img {
   filter: brightness(0) invert(1);
 }
 
-/* бургер меню */
+/* бургер-меню */
 .menu {
   position: relative;
   display: flex;
@@ -214,7 +211,6 @@ body::after {
   transform: scale(1.15);
 }
 
-/* випадаюче меню */
 .menu .dropdown {
   position: absolute;
   top: 50px;
@@ -222,7 +218,7 @@ body::after {
   background: #FFF8E7;
   border-radius: 12px;
   padding: 14px 20px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -230,8 +226,8 @@ body::after {
   z-index: 1000;
   opacity: 0;
   transform: translateY(-10px);
-  pointer-events: none;
   transition: 0.25s ease;
+  pointer-events: none;
 }
 
 .menu[open] .dropdown {
@@ -243,7 +239,7 @@ body::after {
 .menu .dropdown a {
   color: #2C4D4B;
   text-decoration: none;
-  font-family: 'Jura', sans-serif;
+  font-family: "Jura", sans-serif;
   font-weight: 600;
   font-size: 18px;
   padding: 4px 0;
@@ -254,6 +250,7 @@ body::after {
   color: #1D1E1B;
   transform: translateX(4px);
 }
+
 
 /* фонові квіти */
 .flowers-bg {
@@ -750,3 +747,4 @@ body::after {
     opacity: 0.16;
   }
 }
+
