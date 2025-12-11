@@ -65,7 +65,7 @@ if (form) {
     if (!valid) return;
 
     // відправка у google sheets
-fetch("https://script.google.com/macros/s/AKfycbz5TIAxYn0v9JGdqhK4LNctPenSyrX9bLBRnFncrQlj6Lc6UzwmGCpHGZJkt55PbtOY/exec", {
+fetch("https://script.google.com/macros/s/AKfycbxrDg00H5iq24e76keVbCWX6-YwCWu4oKKLVwGffaeReNSA343Q13KrLELhpZTmnMrgrw/exec", {
   method: "POST",
   mode: "no-cors",
   headers: {
@@ -91,5 +91,6 @@ fetch("https://script.google.com/macros/s/AKfycbz5TIAxYn0v9JGdqhK4LNctPenSyrX9bL
     alert('форма успішно надіслана');
   });
 }
+
 
 
