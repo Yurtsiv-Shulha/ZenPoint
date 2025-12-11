@@ -6,7 +6,6 @@ document.querySelectorAll('.trial-button').forEach(btn => {
   });
 });
 
-
 // закриття модалки
 const modal = document.getElementById('register-modal');
 if (modal) {
@@ -65,7 +64,20 @@ if (form) {
 
     if (!valid) return;
 
-    // збереження
+    // відправка у google sheets
+    fetch("https://script.google.com/macros/s/AKfycbxBDh8wyl8HhoMBPsF4JxI7kmhs8DgSS31m4u50gDJo785lxnbzjo2LgRCYu66gaShlpw/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: nameInput.value.trim(),
+        phone: phoneInput.value.trim()
+      })
+    });
+
+    // збереження локально
     localStorage.setItem('userName', nameInput.value.trim());
     localStorage.setItem('userPhone', phoneInput.value.trim());
 
