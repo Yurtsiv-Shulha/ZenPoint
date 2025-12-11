@@ -180,44 +180,52 @@ body.theme-deep::after {
   right: 160px;
   top: 24px;
 }
+/* контейнер */
+.theme-toggle {
+  position: absolute;
+  left: 40px;
+  top: 26px;
+}
 
+/* ховаємо стандартний чекбокс */
 .theme-toggle input {
   display: none;
 }
 
-/* сам слайдер */
-.theme-toggle label {
-  width: 50px;
-  height: 26px;
-  background: #cfd8d6;
-  border-radius: 20px;
-  display: block;
+/* перемикач */
+.switch {
+  width: 52px;
+  height: 28px;
+  background: #2c4d4b;
+  border-radius: 30px;
   position: relative;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.3s;
+  display: inline-block;
 }
 
-/* кружечок */
-.theme-toggle label::after {
+/* круг */
+.switch::after {
   content: "";
   width: 22px;
   height: 22px;
-  background: white;
-  position: absolute;
-  top: 2px;
-  left: 2px;
+  background: #f7c94a;
   border-radius: 50%;
-  transition: 0.3s ease;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s;
 }
 
-/* коли увімкнено */
-#theme-switch:checked + label {
-  background: #1d3333;
+/* активна тема (світла) */
+#theme-switch:checked + .switch {
+  background: #8c6f52; /* бежево-коричневий */
 }
 
-#theme-switch:checked + label::after {
+#theme-switch:checked + .switch::after {
   transform: translateX(24px);
 }
+
 
 /* зображення іконки */
 .icon img {
@@ -898,6 +906,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
