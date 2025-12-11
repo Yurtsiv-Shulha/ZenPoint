@@ -10,7 +10,7 @@
   --carousel-speed: 35s;
 }
 
-/* світла тема */
+/* світла тема — основний стиль */
 html, body {
   margin: 0;
   position: relative;
@@ -18,29 +18,30 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   color: var(--green-deep);
 
-  /* дозвіл сторінці скролити */
   height: auto;
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* альтернативна тема (активується класом theme-deep) */
+
+/* темна тема */
 body.theme-deep {
-  height: 100%;
   background-color: var(--green-deep);
-  color: var(--text-dark);
-  font-family: 'Jura', sans-serif;
+  color: var(--beige);
 }
 
-/* фоновий радіальний градієнт */
+/* радіальний фон темної теми */
 body.theme-deep::after {
   content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 720px;
   background: radial-gradient(50% 50% at 50% 50%, #478480 9.62%, #2C4D4B 100%);
-  z-index: -1;
+  z-index: -2;
 }
+
 
 /* внутрішній відступ для контенту */
 .page-content {
@@ -171,6 +172,51 @@ body.theme-deep::after {
   background: transparent;
   transition: 0.3s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* перемикач теми */
+.theme-toggle {
+  position: absolute;
+  right: 160px;
+  top: 24px;
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+/* сам слайдер */
+.theme-toggle label {
+  width: 50px;
+  height: 26px;
+  background: #cfd8d6;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* кружечок */
+.theme-toggle label::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+/* коли увімкнено */
+#theme-switch:checked + label {
+  background: #1d3333;
+}
+
+#theme-switch:checked + label::after {
+  transform: translateX(24px);
 }
 
 /* зображення іконки */
@@ -852,6 +898,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
