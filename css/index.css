@@ -10,7 +10,7 @@
   --carousel-speed: 35s;
 }
 
-/* світла тема: переоприділяємо змінні */
+/* світла тема */
 body.light-theme {
   --green-deep: #8C6F52; /* коричневий */
   --accent-grey: #C5B3A0; 
@@ -179,12 +179,13 @@ body.theme-deep::after {
   transform: translateY(-1px);
 }
 
-/* перемикач теми — розташування поруч із соц. іконками */
+/* перемикач теми */
 .theme-toggle {
-  margin-right: 12px;
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
+
 
 /* ховаємо чекбокс */
 .theme-toggle input {
@@ -925,6 +926,7 @@ body.theme-deep::after {
     padding-bottom: 14px;
   }
 }
+
 
 
 
