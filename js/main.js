@@ -2,10 +2,10 @@
 document.querySelectorAll('.trial-button').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    const modal = document.getElementById('register-modal');
-    if (modal) modal.classList.remove('hidden');
+    document.getElementById('register-modal').classList.remove('hidden');
   });
 });
+
 
 // закриття модалки
 const modal = document.getElementById('register-modal');
@@ -78,3 +78,4 @@ if (form) {
     alert('форма успішно надіслана');
   });
 }
+
