@@ -1,4 +1,4 @@
-/* Палітра*/
+/* палітра */
 :root {
   --green-deep: #2D4B4B;
   --beige: #FFF8E7;
@@ -18,7 +18,7 @@ body.theme-deep {
   position: relative;
 }
 
-/* Радіальний градієнт*/
+/* радіальний градієнт */
 body.theme-deep::after {
   content: "";
   position: fixed;
@@ -34,7 +34,7 @@ body.theme-deep::after {
   padding-top: 90px;
 }
 
-/* Верхня градієнтна панель */
+/* верхня градієнтна панель */
 /* сам топбар */
 .topbar {
   position: fixed;
@@ -51,19 +51,16 @@ body.theme-deep::after {
   z-index: 1000;
   background: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-
-  /* ВАЖЛИВО: НІЯКОГО overflow тут! */
-  /* overflow: hidden;  <-- прибрати */
 }
 
 .topbar::before {
   content: "";
   position: absolute;
-  inset: 0;           /* top/right/bottom/left: 0 */
+  inset: 0;
   z-index: -1;
-  pointer-events: none;  /* щоб градієнт не ловив кліки */
+  pointer-events: none;
 
-  /* один суцільний градієнт по всій ширині */
+  /* один суцільний градієнт */
   background: linear-gradient(
     90deg,
     var(--accent-grey) 0%,
@@ -72,9 +69,7 @@ body.theme-deep::after {
   );
 }
 
-
-
-/* обидві частини плашки */
+/* частини градієнтної панелі */
 .topbar-gradient {
   position: absolute;
   top: 0;
@@ -83,62 +78,64 @@ body.theme-deep::after {
   z-index: -1;
 }
 
-/* Лівий градієнт */
+/* лівий градієнт */
 .topbar-gradient.left {
   left: 0;
   width: 60vw;
-  background: linear-gradient(90deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 66.48%);
+  background: linear-gradient(
+    90deg,
+    var(--accent-grey) 1.69%,
+    var(--beige) 66.48%
+  );
 }
 
-/* Правий градієнт */
+/* правий градієнт */
 .topbar-gradient.right {
   right: 0;
   width: 60vw;
-  background: linear-gradient(270deg,
-      var(--accent-grey) 1.69%,
-      var(--beige) 68.48%);
+  background: linear-gradient(
+    270deg,
+    var(--accent-grey) 1.69%,
+    var(--beige) 68.48%
+  );
 }
 
-
-/* Логотип ZenPoint */
+/* логотип */
 .logo {
-display: flex;
-align-items: center;
-gap: 2px;
-font-family: 'Gabarito', sans-serif;
-font-weight: 600;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-/* Частина ZEN */
+/* частина zen */
 .logo .zen {
   font-size: 40px;
   line-height: 48px;
   color: #2C4D4B;
 }
 
-/* Частина POINT */
+/* частина point */
 .logo .point {
   font-size: 40px;
   line-height: 48px;
   color: #1D1E1B;
 }
 
-/* Кнопки навігації */
+/* кнопки навігації */
 .nav-buttons {
   display: flex;
   align-items: center;
   gap: 16px;
-  flex-wrap: wrap;     /* дозволяє перенос кнопок */
+  flex-wrap: wrap;
   justify-content: center;
   max-width: 60%;
   font-family: 'Jura', sans-serif;
 }
 
-/* Кнопки */
+/* кнопка */
 .btn {
   display: flex;
   justify-content: center;
@@ -150,7 +147,6 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #2C4D4B;
   text-decoration: none;
   font-family: 'Jura', sans-serif;
-  font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -159,36 +155,20 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 0 20px;
 }
 
-/* ширини згідно з макетом */
-.btn:nth-child(1) {
-  width: 170px;
-}
+/* ширини кнопок */
+.btn:nth-child(1) { width: 170px; }
+.btn:nth-child(2) { width: 112px; }
+.btn:nth-child(3) { width: 120px; }
+.btn:nth-child(4) { width: 130px; }
 
-/* Наші заняття */
-.btn:nth-child(2) {
-  width: 112px;
-}
-
-/* Про нас */
-.btn:nth-child(3) {
-  width: 120px;
-}
-
-/* Розклад */
-.btn:nth-child(4) {
-  width: 130px;
-}
-
-/* Контакти */
-
-/* ефект наведення */
+/* ефект наведення кнопки */
 .btn:hover {
   background: #2C4D4B;
   color: #FFF8E7;
   transform: translateY(-1px);
 }
 
-/* Іконки соцмереж */
+/* іконки соцмереж */
 .social-icons {
   display: flex;
   align-items: center;
@@ -196,7 +176,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
 
-/* Контейнер іконки */
+/* контейнер іконки */
 .icon {
   width: 41px;
   height: 41px;
@@ -209,7 +189,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Зображення всередині */
+/* зображення іконки */
 .icon img {
   width: 35px;
   height: 35px;
@@ -217,7 +197,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
 }
 
-/* Ефект наведення */
+/* ефект наведення іконки */
 .icon:hover {
   background-color: #2C4D4B;
 }
@@ -226,14 +206,14 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   filter: brightness(0) invert(1);
 }
 
-/* анімація при наведенні */
+/* анімація наведення */
 .icon:hover {
   background-color: #2C4D4B;
   transform: scale(1.1);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Бургер-меню */
+/* бургер-меню */
 .menu {
   position: relative;
   display: flex;
@@ -241,7 +221,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   justify-content: center;
 }
 
-/* Прибрати стандартну стрілку summary */
+/* приховування стандартної стрілки summary */
 .menu summary {
   list-style: none;
 }
@@ -250,7 +230,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: none;
 }
 
-/* Іконка меню */
+/* іконка меню */
 .menu summary img {
   width: 35px;
   height: 35px;
@@ -258,29 +238,29 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
 }
 
-/* Анімація наведення */
+/* ефект наведення */
 .menu summary img:hover {
   transform: scale(1.15);
 }
 
-/* Випадаюче меню */
+/* випадаюче меню */
 .menu .dropdown {
-position: absolute;
-top: 50px;
-right: 0;
-background: #FFF8E7;
-border-radius: 12px;
-padding: 14px 20px;
-box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
-display: flex;
-flex-direction: column;
-gap: 10px;
-min-width: 180px;
-z-index: 1000;
-opacity: 0;
-transform: translateY(-10px);
-transition: 0.25s ease;
-pointer-events: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #FFF8E7;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+  pointer-events: none;
 }
 
 /* коли меню відкрите */
@@ -307,9 +287,7 @@ pointer-events: none;
   transform: translateX(4px);
 }
 
-
-/* Квіти на фоні*/
-
+/* декоративні квіти */
 .flower {
   position: fixed;
   opacity: 0.4;
@@ -334,12 +312,13 @@ pointer-events: none;
   display: block;
 }
 
-
+/* контейнер сторінки */
 .about-page {
   max-width: 1180px;
   margin: 0 auto;
 }
 
+/* головний блок про нас */
 .about-hero {
   display: grid;
   grid-template-columns: 1.1fr 1.3fr;
@@ -361,14 +340,16 @@ pointer-events: none;
   font-family: 'Jura', sans-serif;
 }
 
-/* Плашка "Про нас" */
+/* плашка "про нас" */
 .about-title-pill {
   width: 360px;
   margin: 0 auto 32px;
   padding: 18px 24px;
-  background: linear-gradient(180deg,
-              rgba(255, 248, 231, 0.9) 0%,
-              rgba(255, 248, 231, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 231, 0.9) 0%,
+    rgba(255, 248, 231, 0.7) 100%
+  );
   border-radius: 40px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
@@ -381,7 +362,7 @@ pointer-events: none;
   color: var(--green-deep);
 }
 
-/* Текстові блоки */
+/* текстові блоки */
 .about-block {
   margin-bottom: 18px;
   font-size: 14px;
@@ -405,15 +386,14 @@ pointer-events: none;
   margin: 0 0 8px;
 }
 
-/* Тренери*/
-
+/* тренери */
 .trainers-section {
   position: relative;
   margin-top: 80px;
   padding-top: 80px;
 }
 
-/* Велике слово ТРЕНЕРИ */
+/* велике слово "тренери" */
 .trainers-background-title {
   position: absolute;
   left: 50%;
@@ -421,7 +401,7 @@ pointer-events: none;
   top: 0;
   font-family: 'Gabarito', sans-serif;
   font-weight: 700;
-  font-size: 220px;              
+  font-size: 220px;
   line-height: 0.9;
   white-space: nowrap;
   color: rgba(255, 248, 231, 0.08);
@@ -430,7 +410,7 @@ pointer-events: none;
   z-index: 0;
 }
 
-/* Контейнер карток */
+/* контейнер карток */
 .trainers-cards {
   position: relative;
   margin-top: 120px;
@@ -440,7 +420,7 @@ pointer-events: none;
   z-index: 1;
 }
 
-/* Окрема картка тренера */
+/* картка тренера */
 .trainer-card {
   position: relative;
   background: #fff8e7;
@@ -503,7 +483,7 @@ pointer-events: none;
   line-height: 1.4;
 }
 
-/* Футер */
+/* футер */
 .footer {
   width: 100%;
   background: var(--beige);
@@ -530,33 +510,29 @@ pointer-events: none;
   opacity: 0.7;
 }
 
-/* адаптивність */
+/* адаптивність градієнта шапки */
 @media (max-width: 600px) {
-
   .topbar-gradient.left,
   .topbar-gradient.right {
     width: 50vw;
   }
 }
 
-/* =========================
- АДАПТИВНІСТЬ TOPBAR
- ========================= */
-
- @media (max-width: 600px) {
+/* адаптивність topbar */
+@media (max-width: 600px) {
   .topbar-gradient.left,
   .topbar-gradient.right {
     width: 50vw;
   }
 }
 
-/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
+/* до 900px: ховаємо кнопки, працює бургер */
 @media (max-width: 900px) {
   .nav-buttons {
     display: none;
   }
 
-  /* бургер-меню стає компактнішим */
+  /* компактніша іконка меню */
   .menu summary img {
     width: 32px;
     height: 32px;
@@ -576,7 +552,7 @@ pointer-events: none;
   }
 }
 
-/* до 700px – дрібні корекції меню */
+/* до 700px: дрібні корекції меню */
 @media (max-width: 700px) {
   .menu .dropdown {
     font-size: 15px;
@@ -606,7 +582,7 @@ pointer-events: none;
   }
 }
 
-/* на дуже вузьких екранах – ще компактніше меню */
+/* дуже вузькі екрани */
 @media (max-width: 480px) {
   .menu .dropdown {
     max-width: 75vw;
@@ -625,7 +601,7 @@ pointer-events: none;
   }
 }
 
-/* адаптивність розмірів кнопок і блоку навігації */
+/* адаптивність кнопок навігації */
 @media (max-width: 1250px) {
   .btn {
     font-size: 18px;
@@ -672,11 +648,11 @@ pointer-events: none;
   }
 }
 
-/* коли екран вузький, дозволяємо топбару переноситися на два рядки */
+/* дозволяємо топбару переноситися */
 @media (max-width: 650px) {
   .nav-buttons {
     max-width: 100%;
-    order: 2;         /* опускаємо під логотип */
+    order: 2;
     justify-content: center;
   }
 
@@ -687,212 +663,205 @@ pointer-events: none;
   }
 }
 
-/* =========================
- АДАПТИВНІСТЬ ДЛЯ БЛОКУ "ПРО НАС" І ТРЕНЕРІВ
- ========================= */
-
-/* трохи дрібніший текст і менші відступи */
+/* адаптивність блоку про нас і тренерів */
 @media (max-width: 1100px) {
-.about-hero {
-  gap: 32px;
-}
-
-.about-block {
-  font-size: 13px;
-}
-
-.trainers-background-title {
-  font-size: 190px;
-}
-}
-
-/* картинка зверху, текст під нею; тренери в 2 колонки */
-@media (max-width: 900px) {
-.about-hero {
-  grid-template-columns: 1fr;
-  margin-top: 30px;
-}
-.nav-buttons {
-  display: none;
-}
-
-.about-photo {
-  max-width: 560px;
-  margin: 0 auto 24px;
-}
-
-.about-title-pill {
-  margin-bottom: 24px;
-}
-
-.trainers-section {
-  margin-top: 60px;
-  padding-top: 60px;
-}
-
-.trainers-background-title {
-  font-size: 170px;
-}
-
-.trainers-cards {
-  margin-top: 110px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.trainer-card {
-  padding: 72px 28px 32px;
-  border-radius: 42px;
-}
-
-.trainer-avatar {
-  top: -62px;
-  width: 120px;
-  height: 120px;
-}
-
-.trainer-avatar img {
-  width: 110px;
-  height: 110px;
-}
-}
-
-/* вузькі планшети / великі телефони – тренери по одному, картка не на весь екран */
-@media (max-width: 700px) {
-.about-page {
-  padding: 0 18px;
-}
-
-
-
-.trainers-background-title {
-  font-size: 140px;
-}
-
-.trainers-cards {
-  grid-template-columns: 1fr;
-  max-width: 420px;
-  margin: 110px auto 0;
-}
-
-.trainer-card {
-  margin: 0 auto 28px;
-  padding: 68px 26px 32px;
-  border-radius: 40px;
-}
-}
-
-/* маленькі телефони – ще трохи зменшуємо шрифти й "ТРЕНЕРИ",
- щоб слово не вилізало за межі */
-@media (max-width: 500px) {
-
-.about-page {
-  padding: 0 14px;
-}
-
-.about-title-pill {
-  width: 260px;
-  padding: 14px 18px;
-}
-
-.about-title-pill h1 {
-  font-size: 26px;
-}
-
-.about-block {
-  font-size: 12.5px;
-}
-
-.trainers-background-title {
-  font-size: 110px;
-}
-
-.trainer-card {
-  padding: 64px 22px 30px;
-  border-radius: 32px;
-}
-
-.trainer-name {
-  font-size: 18px;
-}
-
-.trainer-quote {
-  font-size: 13px;
-}
-
-.trainer-text {
-  font-size: 12px;
-}
-
-.trainer-avatar {
-  top: -56px;
-  width: 110px;
-  height: 110px;
-}
-
-.trainer-avatar img {
-  width: 100px;
-  height: 100px;
-}
-}
-
-@media (max-width: 400px) {
-  .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 5;
-    flex-shrink: 0;  
+  .about-hero {
+    gap: 32px;
   }
+
+  .about-block {
+    font-size: 13px;
+  }
+
+  .trainers-background-title {
+    font-size: 190px;
+  }
+}
+
+/* при 900px: фото зверху, тренери у дві колонки */
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+
+  .nav-buttons {
+    display: none;
+  }
+
+  .about-photo {
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+
+  .about-title-pill {
+    margin-bottom: 24px;
+  }
+
+  .trainers-section {
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+
+  .trainers-background-title {
+    font-size: 170px;
+  }
+
+  .trainers-cards {
+    margin-top: 110px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .trainer-card {
+    padding: 72px 28px 32px;
+    border-radius: 42px;
+  }
+
+  .trainer-avatar {
+    top: -62px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .trainer-avatar img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* до 700px: тренери по одному */
+@media (max-width: 700px) {
+  .about-page {
+    padding: 0 18px;
+  }
+
+  .trainers-background-title {
+    font-size: 140px;
+  }
+
+  .trainers-cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 110px auto 0;
+  }
+
+  .trainer-card {
+    margin: 0 auto 28px;
+    padding: 68px 26px 32px;
+    border-radius: 40px;
+  }
+}
+
+/* маленькі телефони: зменшення шрифтів і заголовка, щоб слово не виходило за межі */
+@media (max-width: 500px) {
 
   .about-page {
     padding: 0 14px;
   }
-  
+
   .about-title-pill {
     width: 260px;
     padding: 14px 18px;
   }
-  
+
   .about-title-pill h1 {
     font-size: 26px;
   }
-  
+
   .about-block {
     font-size: 12.5px;
   }
-  
+
   .trainers-background-title {
-    font-size: 90px;
+    font-size: 110px;
   }
-  
+
   .trainer-card {
     padding: 64px 22px 30px;
     border-radius: 32px;
   }
-  
+
   .trainer-name {
     font-size: 18px;
   }
-  
+
   .trainer-quote {
     font-size: 13px;
   }
-  
+
   .trainer-text {
     font-size: 12px;
   }
-  
+
   .trainer-avatar {
     top: -56px;
     width: 110px;
     height: 110px;
   }
-  
+
   .trainer-avatar img {
     width: 100px;
     height: 100px;
   }
+}
+
+@media (max-width: 400px) {
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+    flex-shrink: 0;
   }
 
+  .about-page {
+    padding: 0 14px;
+  }
 
+  .about-title-pill {
+    width: 260px;
+    padding: 14px 18px;
+  }
+
+  .about-title-pill h1 {
+    font-size: 26px;
+  }
+
+  .about-block {
+    font-size: 12.5px;
+  }
+
+  .trainers-background-title {
+    font-size: 90px;
+  }
+
+  .trainer-card {
+    padding: 64px 22px 30px;
+    border-radius: 32px;
+  }
+
+  .trainer-name {
+    font-size: 18px;
+  }
+
+  .trainer-quote {
+    font-size: 13px;
+  }
+
+  .trainer-text {
+    font-size: 12px;
+  }
+
+  .trainer-avatar {
+    top: -56px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .trainer-avatar img {
+    width: 100px;
+    height: 100px;
+  }
+}
