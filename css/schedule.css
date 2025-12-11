@@ -35,7 +35,6 @@
     padding-top: 90px;
   }
   
-  /* Верхня градієнтна панель */
   /* сам топбар */
   .topbar {
     position: fixed;
@@ -52,17 +51,14 @@
     z-index: 1000;
     background: transparent;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  
-    /* ВАЖЛИВО: НІЯКОГО overflow тут! */
-    /* overflow: hidden;  <-- прибрати */
   }
   
   .topbar::before {
     content: "";
     position: absolute;
-    inset: 0;           /* top/right/bottom/left: 0 */
+    inset: 0;          
     z-index: -1;
-    pointer-events: none;  /* щоб градієнт не ловив кліки */
+    pointer-events: none; 
   
     /* один суцільний градієнт по всій ширині */
     background: linear-gradient(
@@ -73,34 +69,6 @@
     );
   }
   
-  
-  
-  /* обидві частини плашки */
-  .topbar-gradient {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-  }
-  
-  /* Лівий градієнт */
-  .topbar-gradient.left {
-    left: 0;
-    width: 60vw;
-    background: linear-gradient(90deg,
-        var(--accent-grey) 1.69%,
-        var(--beige) 66.48%);
-  }
-  
-  /* Правий градієнт */
-  .topbar-gradient.right {
-    right: 0;
-    width: 60vw;
-    background: linear-gradient(270deg,
-        var(--accent-grey) 1.69%,
-        var(--beige) 68.48%);
-  }
   
   
   /* Логотип ZenPoint */
@@ -164,25 +132,17 @@
   .btn:nth-child(1) {
     width: 170px;
   }
-  
-  /* Наші заняття */
   .btn:nth-child(2) {
     width: 112px;
   }
-  
-  /* Про нас */
   .btn:nth-child(3) {
     width: 120px;
   }
-  
-  /* Розклад */
   .btn:nth-child(4) {
     width: 130px;
   }
   
-  /* Контакти */
-  
-  /* ефект наведення */
+
   .btn:hover {
     background: #2C4D4B;
     color: #FFF8E7;
@@ -242,7 +202,6 @@
     justify-content: center;
   }
   
-  /* Прибрати стандартну стрілку summary */
   .menu summary {
     list-style: none;
   }
@@ -487,9 +446,7 @@
   }
 }
 
-/* =========================
- АДАПТИВНІСТЬ TOPBAR
- ========================= */
+/* АДАПТИВНІСТЬ TOPBAR*/
 
  @media (max-width: 600px) {
   .topbar-gradient.left,
@@ -497,14 +454,11 @@
     width: 50vw;
   }
 }
-
-/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
 @media (max-width: 900px) {
   .nav-buttons {
     display: none;
   }
 
-  /* бургер-меню стає компактнішим */
   .menu summary img {
     width: 32px;
     height: 32px;
@@ -524,7 +478,6 @@
   }
 }
 
-/* до 700px – дрібні корекції меню */
 @media (max-width: 700px) {
   .menu .dropdown {
     font-size: 15px;
@@ -539,7 +492,6 @@
   }
 }
 
-/* маленькі телефони */
 @media (max-width: 450px) {
   .menu .dropdown {
     font-size: 14px;
@@ -554,7 +506,6 @@
   }
 }
 
-/* на дуже вузьких екранах – ще компактніше меню */
 @media (max-width: 480px) {
   .menu .dropdown {
     max-width: 75vw;
@@ -572,8 +523,6 @@
     height: 30px;
   }
 }
-
-/* адаптивність розмірів кнопок і блоку навігації */
 @media (max-width: 1250px) {
   .btn {
     font-size: 18px;
@@ -635,7 +584,6 @@
   }
 }
 
-/* Планшети / вузькі ноутбуки */
 @media (max-width: 900px) {
   .schedule-page {
     padding: 0 16px 40px;
@@ -673,7 +621,7 @@
   }
 }
 
-/* Телефони */
+
 @media (max-width: 600px) {
   .schedule-page {
     padding: 0 12px 36px;
@@ -704,7 +652,7 @@
 
   .schedule-table {
     font-size: 12px;
-    min-width: 640px;   /* трохи менше, щоб на дуже вузьких теж влазило */
+    min-width: 640px;   
   }
 
   .schedule-table th,
@@ -726,3 +674,4 @@
 
 
   
+
