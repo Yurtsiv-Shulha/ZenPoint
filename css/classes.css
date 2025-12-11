@@ -586,9 +586,8 @@ body.theme-deep::after {
   opacity: 0.7;
 }
 
-/* =========================
- АДАПТИВНІСТЬ TOPBAR
- ========================= */
+/* 
+ АДАПТИВНІСТЬ TOPBAR */
 
  @media (max-width: 600px) {
   .topbar-gradient.left,
@@ -597,13 +596,11 @@ body.theme-deep::after {
   }
 }
 
-/* до 900px: ховаємо верхні кнопки, працюємо через бургер */
 @media (max-width: 900px) {
   .nav-buttons {
     display: none;
   }
 
-  /* бургер-меню стає компактнішим */
   .menu summary img {
     width: 32px;
     height: 32px;
@@ -623,7 +620,6 @@ body.theme-deep::after {
   }
 }
 
-/* до 700px – дрібні корекції меню */
 @media (max-width: 700px) {
   .menu .dropdown {
     font-size: 15px;
@@ -638,7 +634,6 @@ body.theme-deep::after {
   }
 }
 
-/* маленькі телефони */
 @media (max-width: 450px) {
   .menu .dropdown {
     font-size: 14px;
@@ -653,7 +648,6 @@ body.theme-deep::after {
   }
 }
 
-/* на дуже вузьких екранах – ще компактніше меню */
 @media (max-width: 480px) {
   .menu .dropdown {
     max-width: 75vw;
@@ -672,7 +666,6 @@ body.theme-deep::after {
   }
 }
 
-/* адаптивність розмірів кнопок і блоку навігації */
 @media (max-width: 1250px) {
   .btn {
     font-size: 18px;
@@ -723,7 +716,7 @@ body.theme-deep::after {
 @media (max-width: 650px) {
   .nav-buttons {
     max-width: 100%;
-    order: 2;         /* опускаємо під логотип */
+    order: 2;         
     justify-content: center;
   }
 
@@ -734,9 +727,9 @@ body.theme-deep::after {
   }
   
 }
-/* =========================
+/*
    АДАПТИВНІСТЬ ДЛЯ КВІТОК
-   ========================= */
+*/
 
 /* планшети */
 @media (max-width: 900px) {
@@ -755,8 +748,6 @@ body.theme-deep::after {
     top: 150px;
   }
 }
-
-/* телефони */
 @media (max-width: 600px) {
   .flowers-bg {
     top: 120px;
@@ -774,7 +765,6 @@ body.theme-deep::after {
   }
 }
 
-/* дуже вузькі */
 @media (max-width: 400px) {
   .flower-left,
   .flower-right {
@@ -783,13 +773,9 @@ body.theme-deep::after {
   }
 }
 
+/* 
+   АДАПТИВНІСТЬ ДЛЯ КАРТОК ЗАНЯТЬ  */
 
-
-/* =========================
-   АДАПТИВНІСТЬ ДЛЯ КАРТОК ЗАНЯТЬ
-   ========================= */
-
-/* трішки стискаємо на планшетах */
 @media (max-width: 1100px) {
   .classes-cards {
     gap: 64px;
@@ -805,7 +791,6 @@ body.theme-deep::after {
   }
 }
 
-/* планшети / вузькі ноутбуки */
 @media (max-width: 900px) {
   .classes-section {
     margin-top: 120px;
@@ -826,8 +811,6 @@ body.theme-deep::after {
   }
 }
 
-/* великі телефони / вузькі планшети:
-   картки в колонку, не прилипають до країв */
 @media (max-width: 700px) {
   .classes-title {
     width: min(360px, 90vw);
@@ -849,7 +832,7 @@ body.theme-deep::after {
   .slider {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;   /* картинка квадратна, але вже гнучка */
+    aspect-ratio: 1 / 1;   
   }
 
   .class-card h3 {
@@ -860,7 +843,6 @@ body.theme-deep::after {
   }
 }
 
-/* маленькі телефони */
 @media (max-width: 480px) {
   .classes-title {
     width: min(320px, 92vw);
@@ -883,9 +865,9 @@ body.theme-deep::after {
 
 
 
-/* =========================
+/*
    АДАПТИВНІСТЬ ДЛЯ МОДАЛЬНОГО ВІКНА
-   ========================= */
+*/
 
 /* планшети / телефони */
 @media (max-width: 900px) {
@@ -897,15 +879,13 @@ body.theme-deep::after {
   }
 }
 
-/* телефони */
+
 @media (max-width: 600px) {
   .modal-content {
     width: 94%;
     max-width: 420px;
     margin: 80px auto 30px;
     padding: 18px 20px;
-
-    /* щоб текст не вилазив за екран */
     max-height: calc(100vh - 120px);
     overflow-y: auto;
   }
@@ -923,7 +903,7 @@ body.theme-deep::after {
   }
 }
 
-/* дуже вузькі телефони */
+
 @media (max-width: 400px) {
   .modal-content {
     margin: 70px auto 20px;
@@ -939,3 +919,4 @@ body.theme-deep::after {
     font-size: 13px;
   }
 }
+
