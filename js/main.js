@@ -179,16 +179,22 @@ if (themeSwitch) {
 //     card.style.backgroundColor = 'rgba(255, 182, 193, 0.35)';
 // });
 
-document.querySelectorAll('.class-card').forEach(card => {
-    card.style.backgroundColor = "";
-});
+// document.querySelectorAll('.class-card').forEach(card => {
+//     card.style.backgroundColor = "";
+// });
 
 // 2.2 динамічна дата у футері
 const yearSpan = document.getElementById('footer-year');
 if (yearSpan) {
-    const currentYear = new Date().getFullYear();
-    yearSpan.textContent = currentYear;
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // місяці від 0 до 11
+    const day = String(now.getDate()).padStart(2, '0');
+
+    yearSpan.textContent = `${day}.${month}.${year}`;
 }
+
 
 // 3.2 підсвітка меню навігації через js
 document.querySelectorAll('.btn').forEach(btn => {
@@ -224,6 +230,7 @@ document.addEventListener('keydown', e => {
     }
 
 });
+
 
 
 
