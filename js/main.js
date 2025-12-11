@@ -176,9 +176,8 @@ if (themeSwitch) {
 
 // 2.1 маніпуляція елементами
 document.querySelectorAll('.class-card').forEach(card => {
-    card.style.backgroundColor = 'rgba(255, 150, 200, 0.35)';
+    card.style.backgroundColor = 'rgba(255, 182, 193, 0.35)';
 });
-
 
 // 2.2 динамічна дата у футері
 const yearSpan = document.getElementById('footer-year');
@@ -198,6 +197,7 @@ document.querySelectorAll('.btn').forEach(btn => {
         btn.classList.remove('nav-hover');
     });
 });
+
 
 
 
