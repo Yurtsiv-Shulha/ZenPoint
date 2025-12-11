@@ -198,6 +198,29 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
+// 3.2 зміна розміру тексту стрілками
+let baseFontSize = 16; // початковий розмір шрифту
+
+document.addEventListener('keydown', e => {
+
+    // ↑ збільшити шрифт
+    if (e.key === "ArrowUp") {
+        baseFontSize += 1;
+        document.body.style.fontSize = baseFontSize + "px";
+    }
+
+    // ↓ зменшити шрифт
+    if (e.key === "ArrowDown") {
+        baseFontSize -= 1;
+
+        // не дозволяємо зробити шрифт надто маленьким
+        if (baseFontSize < 10) baseFontSize = 10;
+
+        document.body.style.fontSize = baseFontSize + "px";
+    }
+
+});
+
 
 
 
