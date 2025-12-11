@@ -187,6 +187,18 @@ if (yearSpan) {
     yearSpan.textContent = currentYear;
 }
 
+// 3.2 підсвітка меню навігації через js
+document.querySelectorAll('.btn').forEach(btn => {
+
+    btn.addEventListener('mouseenter', () => {
+        btn.classList.add('nav-hover');
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.classList.remove('nav-hover');
+    });
+});
+
 
 
 
