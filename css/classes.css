@@ -128,11 +128,19 @@ body.theme-deep::after {
 .btn:nth-child(3) { width: 120px; }
 .btn:nth-child(4) { width: 130px; }
 
-.btn:hover {
+/* підсвітка меню через js */
+.nav-hover {
+  background: #2C4D4B;
+  color: #FFF8E7 !important;
+  transform: translateY(-2px);
+  transition: 0.25s;
+}
+
+/* .btn:hover {
   background: #2C4D4B;
   color: #FFF8E7;
   transform: translateY(-1px);
-}
+} */
 
 /* соц. іконки */
 .social-icons {
@@ -919,4 +927,5 @@ body.theme-deep::after {
     font-size: 13px;
   }
 }
+
 
