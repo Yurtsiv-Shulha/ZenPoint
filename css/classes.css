@@ -1,4 +1,4 @@
-/* палітра */
+/* кольорова палітра */
 :root {
   --green-deep: #2D4B4B;
   --beige: #FFF8E7;
@@ -6,22 +6,23 @@
   --text-dark: #1D1E1B;
 }
 
-html, body {
+/* базові стилі */
+html,
+body {
   height: 100%;
+}
+
+body {
   margin: 0;
-}
-
-body.theme-deep {
   background-color: var(--green-deep);
-  color: var(--beige);
+  color: var(--text-dark);
   font-family: 'Jura', sans-serif;
-  position: relative;
 }
 
-/* радіальний градієнт */
-body.theme-deep::after {
+/* нижній радіальний фон */
+body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
@@ -30,42 +31,24 @@ body.theme-deep::after {
   z-index: -1;
 }
 
+/* відступ під топбар */
 .page-content {
   padding-top: 90px;
 }
 
-/* топбар */
+/* верхня панель */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 90px;
   z-index: 1000;
   background: transparent;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* градієнт у топбарі */
-.topbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    var(--accent-grey) 0%,
-    var(--beige) 50%,
-    var(--accent-grey) 100%
-  );
-}
-
-
-/* частини додаткових градієнтів */
+/* фонові градієнти */
 .topbar-gradient {
   position: absolute;
   top: 0;
@@ -86,21 +69,17 @@ body.theme-deep::after {
   background: linear-gradient(270deg, var(--accent-grey) 1.69%, var(--beige) 68.48%);
 }
 
-.topbar-inner {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 /* логотип */
 .logo {
+  position: absolute;
+  top: 16px;
+  left: 64px;
   display: flex;
   align-items: center;
   gap: 2px;
   font-family: 'Gabarito', sans-serif;
   font-weight: 600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logo .zen {
@@ -115,22 +94,23 @@ body.theme-deep::after {
   color: #1D1E1B;
 }
 
-/* кнопки навігації */
+/* навігація */
 .nav-buttons {
+  position: absolute;
+  top: 14px;
+  left: 535px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 60%;
-  font-family: 'Jura', sans-serif;
+  gap: 24px;
 }
 
+/* кнопки */
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 41px;
+  padding: 0 20px;
   background: transparent;
   border: 1px solid #2C4D4B;
   border-radius: 20px;
@@ -139,15 +119,27 @@ body.theme-deep::after {
   font-family: 'Jura', sans-serif;
   font-weight: 600;
   font-size: 20px;
-  padding: 0 20px;
-  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  line-height: 24px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.25s;
 }
 
-.btn:nth-child(1) { width: 170px; }
-.btn:nth-child(2) { width: 112px; }
-.btn:nth-child(3) { width: 120px; }
-.btn:nth-child(4) { width: 130px; }
+/* ширини згідно макету */
+.btn:nth-child(1) {
+  width: 170px;
+}
+
+.btn:nth-child(2) {
+  width: 112px;
+}
+
+.btn:nth-child(3) {
+  width: 120px;
+}
+
+.btn:nth-child(4) {
+  width: 130px;
+}
 
 .btn:hover {
   background: #2C4D4B;
@@ -155,8 +147,11 @@ body.theme-deep::after {
   transform: translateY(-1px);
 }
 
-/* соцмережі */
+/* соц. іконки */
 .social-icons {
+  position: absolute;
+  top: 16px;
+  right: 48px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -171,7 +166,7 @@ body.theme-deep::after {
   align-items: center;
   border-radius: 8px;
   background: transparent;
-  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
 }
 
@@ -185,14 +180,14 @@ body.theme-deep::after {
 .icon:hover {
   background-color: #2C4D4B;
   transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .icon:hover img {
   filter: brightness(0) invert(1);
 }
 
-/* бургер-меню */
+/* бургер меню */
 .menu {
   position: relative;
   display: flex;
@@ -219,6 +214,7 @@ body.theme-deep::after {
   transform: scale(1.15);
 }
 
+/* випадаюче меню */
 .menu .dropdown {
   position: absolute;
   top: 50px;
@@ -226,7 +222,7 @@ body.theme-deep::after {
   background: #FFF8E7;
   border-radius: 12px;
   padding: 14px 20px;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -234,8 +230,8 @@ body.theme-deep::after {
   z-index: 1000;
   opacity: 0;
   transform: translateY(-10px);
-  transition: 0.25s ease;
   pointer-events: none;
+  transition: 0.25s ease;
 }
 
 .menu[open] .dropdown {
@@ -247,7 +243,7 @@ body.theme-deep::after {
 .menu .dropdown a {
   color: #2C4D4B;
   text-decoration: none;
-  font-family: "Jura", sans-serif;
+  font-family: 'Jura', sans-serif;
   font-weight: 600;
   font-size: 18px;
   padding: 4px 0;
@@ -258,7 +254,6 @@ body.theme-deep::after {
   color: #1D1E1B;
   transform: translateX(4px);
 }
-
 
 /* фонові квіти */
 .flowers-bg {
@@ -597,26 +592,6 @@ body.theme-deep::after {
   }
 }
 
-@media (max-width: 650px) {
-  .topbar {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-bottom: 14px;
-  }
-
-  .nav-buttons {
-    order: 2;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .social-icons {
-    order: 3;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
 /* приблизно планшети: три картки стають більш компактними, дозволяємо перенос */
 @media (max-width: 900px) {
   .classes-section {
@@ -775,8 +750,3 @@ body.theme-deep::after {
     opacity: 0.16;
   }
 }
-
-
-
-
-
